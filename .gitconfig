@@ -1,3 +1,17 @@
 [user]
-	email = hchen.robotics@gmail.com
-	name = Harrison Chen
+    email = hchen.robotics@gmail.com
+    name = Harrison Chen
+[alias]
+    stash-all = stash --include-untracked
+    uncommit = reset --soft HEAD~1
+    untrack = restore --staged
+[commit]
+    verbose = true
+[fetch]
+    prune = true
+[help]
+    autocorrect = true
+[init]
+    defaultBranch = main
+[pull]
+    ff = only
