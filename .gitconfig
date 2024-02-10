@@ -6,6 +6,7 @@
     uncommit = reset --soft HEAD~1
     untrack = restore --staged
 [commit]
+    template = ~/.gitmessage.txt
     verbose = true
 [fetch]
     prune = true
@@ -15,3 +16,6 @@
     defaultBranch = main
 [pull]
     ff = only
+[status]
+    branch = true
+    short = true
