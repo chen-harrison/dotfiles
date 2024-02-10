@@ -1,5 +1,26 @@
+# Syntax highlighting
 include "/usr/share/nano/*.nanorc"
 
+# Persistent cursor position info
 set constantshow
+
+# Line numbers
 set linenumbers
+
+# Scroll bar
 set indicator
+
+# Automatically indent
+set autoindent
+
+# Tab size to 4 (default to 8)
+set tabsize 4
+
+# Convert tabs to spaces
+set tabstospaces
+
+# Change key bindings
+bind ^C copy main    
+bind ^V paste all    
+bind ^F whereis all  
+bind ^S savefile main
