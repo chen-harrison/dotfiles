@@ -1,0 +1,8 @@
+{
+    "editor.detectIndentation": false,
+    "editor.rulers": [80,120],
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.iconTheme": "vscode-icons",
+    "C_Cpp.clang_format_style": "/home/harrison/.clang-format",
+    "C_Cpp.doxygen.generatedStyle": "/**"
+}
