@@ -105,6 +105,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -116,14 +120,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Helpful aliases
-alias ip_address="echo $(ip -f inet -o addr show wlp0s20f3|cut -d\  -f 7 | cut -d/ -f 1)"
-alias open="xdg-open"
-alias cl="clear"
-alias ga="git add"
-alias gc="git commit"
-alias gp="git push"
-alias gs="git status"
+# IP address var
+export ip=$(ip_address)
 
 # fzf
 source /usr/share/doc/fzf/examples/key-bindings.bash
