@@ -3,6 +3,10 @@
     "editor.rulers": [80,120],
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.iconTheme": "vscode-icons",
-    "C_Cpp.clang_format_style": "/home/harrison/.clang-format",
-    "C_Cpp.doxygen.generatedStyle": "/**"
+    "C_Cpp.doxygen.generatedStyle": "/**",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
 }

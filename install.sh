@@ -1,7 +1,6 @@
-mkdir -p prev_dotfiles
-
 dotfiles_dir=$(dirname $0)
 cd ${dotfiles_dir}
+mkdir -p ${PWD}/prev_dotfiles
 
 # .bash_aliases
 [ -f ~/.bash_aliases ] && mv ~/.bash_aliases ${dotfiles_dir}/prev_dotfiles/
