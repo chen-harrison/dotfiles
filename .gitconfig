@@ -8,6 +8,8 @@
 [commit]
     template = ~/.gitmessage.txt
     verbose = true
+[core]
+    editor = code --wait
 [fetch]
     prune = true
 [help]

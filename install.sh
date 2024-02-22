@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 dotfiles_dir=$(dirname $0)
 cd ${dotfiles_dir}
 mkdir -p ${PWD}/prev_dotfiles
