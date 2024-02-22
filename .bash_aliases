@@ -8,6 +8,7 @@ alias gp='git push'
 alias gs='git status'
 
 # Misc
+alias brc='. ~/.bashrc'
 alias ip_address="hostname -I | awk '{print \$1}'"
 alias open='xdg-open'
 alias cl='clear'
