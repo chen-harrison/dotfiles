@@ -1,13 +1,40 @@
 {
-    "C_Cpp.doxygen.generatedStyle": "/**",
     "C_Cpp.clang_format_style": "file",
     "C_Cpp.clang_format_fallbackStyle": "Google",
+    "C_Cpp.doxygen.generatedStyle": "/**",
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     "editor.detectIndentation": false,
     "editor.rulers": [80,120],
     "git.confirmSync": false,
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 1,
+    "indentRainbow.colors": [
+        "rgba(255, 255, 64, 0.5)",
+        "rgba(127, 255, 127, 0.5)",
+        "rgba(255, 127, 255, 0.5)",
+        "rgba(79, 236, 236, 0.5)"
+    ],
     "workbench.colorTheme": "Default Dark Modern",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "peacock.favoriteColors": [
+        {
+            "name": "Red",
+            "value": "#641414"
+        },
+        {
+            "name": "Blue",
+            "value": "#141464"
+        },
+        {
+            "name": "Green",
+            "value": "#146414"
+        },
+        {
+            "name": "Purple",
+            "value": "#3c1464"
+        }
+    ]
+    
 }

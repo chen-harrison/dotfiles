@@ -19,6 +19,14 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=100000
 
+# Option 1: commands will be written to history file immediately, so new terminals created
+# after running command will see it in history, even if bash session is not ended
+PROMPT_COMMAND="history -a;${PROMPT_COMMAND}"
+
+# Option 2: commands will be written to and read from history file immediately.
+# so existing terminals will see commands from other instances in history
+# PROMPT_COMMAND="history -a;history -c;history -r;${PROMPT_COMMAND}"
+
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
