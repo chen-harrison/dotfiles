@@ -7,4 +7,3 @@ This will move all existing versions of dotfiles into `prev_dotfiles` directory 
 
 ### TODO:
 - C++ `includePath`/`compilerPath` for VS Code
-- clang-tidy

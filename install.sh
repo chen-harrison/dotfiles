@@ -20,6 +20,10 @@ ln -s ${PWD}/.bashrc ~/.bashrc
 [ -f ~/.clang-format ] && mv ~/.clang-format ${dotfiles_dir}/prev_dotfiles/
 ln -s ${PWD}/.clang-format ~/.clang-format
 
+# .clang-tidy
+[ -f ~/.clang-tidy ] && mv ~/.clang-tidy ${dotfiles_dir}/prev_dotfiles/
+ln -s ${PWD}/.clang-tidy ~/.clang-tidy
+
 # .gitconfig
 [ -f ~/.gitconfig ] && mv ~/.gitconfig ${dotfiles_dir}/prev_dotfiles/
 ln -s ${PWD}/.gitconfig ~/.gitconfig
