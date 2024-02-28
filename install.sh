@@ -24,6 +24,10 @@ ln -s ${PWD}/.clang-format ~/.clang-format
 [ -f ~/.gitconfig ] && mv ~/.gitconfig ${dotfiles_dir}/prev_dotfiles/
 ln -s ${PWD}/.gitconfig ~/.gitconfig
 
+# .gitignore_global
+[ -f ~/.gitignore_global ] && mv ~/.gitignore_global ${dotfiles_dir}/prev_dotfiles/
+ln -s ${PWD}/.gitignore_global ~/.gitignore_global
+
 # .gitmessage.txt
 [ -f ~/.gitmessage.txt ] && mv ~/.gitmessage.txt ${dotfiles_dir}/prev_dotfiles/
 ln -s ${PWD}/.gitmessage.txt ~/.gitmessage.txt

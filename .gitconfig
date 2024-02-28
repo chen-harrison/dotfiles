@@ -19,6 +19,7 @@
     verbose = true
 [core]
     editor = code --wait
+    excludesFile = ~/.gitignore_global
 [fetch]
     prune = true
 [help]
