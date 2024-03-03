@@ -4,33 +4,33 @@
 # \param $1 Absolute path to the dotfile you want to set a symlink for
 # \param $2 Absolute path to the symlink you want to set
 add_dotfile () {
-    local dotfile_path=${1}
-    local symlink_path=${2}
+    local dotfile_path=$1
+    local symlink_path=$2
     local file_path=''
 
-    echo "Symlinking ${dotfile_path} to ${symlink_path}"
+    echo "Symlinking $dotfile_path to $symlink_path"
 
     # Get the file (or underlying file, for symlinks) at the symlink path
-    if [ -f ${symlink_path} ]; then
-        if [ -L ${symlink_path} ]; then
-            file_path=$(readlink -f ${symlink_path})
+    if [ -f $symlink_path ]; then
+        if [ -L $symlink_path ]; then
+            file_path=$(readlink -f $symlink_path)
         else
-            file_path=${symlink_path}
+            file_path=$symlink_path
         fi
 
         # If the file is different from the source dotfile, we'll store it in prev_dotfiles
-        if [ "${dotfile_path}" != ${file_path} ]; then
-            echo "Saving ${file_path} to prev_dotfiles"
-            mv ${file_path} ${PWD}/prev_dotfiles/
+        if [ "$dotfile_path" != $file_path ]; then
+            echo "Saving $file_path to prev_dotfiles"
+            mv $file_path $PWD/prev_dotfiles/
         fi
     fi
 
-    ln -sf ${dotfile_path} ${symlink_path}
+    ln -sf $dotfile_path $symlink_path
 }
 
 
 dotfiles_dir=$(dirname $0)
-cd ${dotfiles_dir}
+cd $dotfiles_dir
 mkdir -p ${PWD}/prev_dotfiles
 
 add_dotfile ~/dotfiles/.bash_aliases ~/.bash_aliases

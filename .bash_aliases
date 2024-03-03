@@ -1,6 +1,3 @@
-# ' ' = everything is just a string, ignore macro triggers ($, %, &, etc.)
-# " " = process macro triggers
-
 # Misc
 alias brc='. ~/.bashrc'
 alias ip_address="hostname -I | awk '{print \$1}'"
