@@ -1,3 +1,50 @@
+clang_format_dir() {
+    local code_dir=$1
+    local search_dir=~/.vscode
+    # Grab clang-format binary from the latest version of the VS Code C++ extension
+    local format_cmd=$(find $search_dir -name 'clang-format' -type f | sort | tail -1)
+
+    if [[ $format_cmd ]] ; then
+        cd $code_dir
+        find . -name '*.cpp' -or -name '*.h' -or -name '*.hpp' -exec $format_cmd -i --style=file {} \;
+        cd - > /dev/null
+    else
+        >&2 echo "ERROR: No clang-format found in $search_dir"
+    fi
+}
+
+find_file() {
+    if [[ "$#" -eq 2 ]] ; then
+        find $1 -name $2 -type f
+    elif [[ "$#" -eq 1 ]] ; then
+        find . -name $1 -type f
+    fi
+}
+
+find_dir() {
+    if [[ "$#" -eq 2 ]] ; then
+        find $1 -name $2 -type d
+    elif [[ "$#" -eq 1 ]] ; then
+        find . -name $1 -type d
+    fi
+}
+
+fzf_file() {
+    if [[ "$#" -eq 1 ]] ; then
+        find $1 -type f | fzf
+    elif [[ "$#" -eq 0 ]] ; then
+        find . -type f | fzf
+    fi
+}
+
+fzf_dir() {
+    if [[ "$#" -eq 1 ]] ; then
+        find $1 -type d | fzf
+    elif [[ "$#" -eq 0 ]] ; then
+        find . -type d | fzf
+    fi
+}
+
 wordle() {
     words=($(grep '^\w\w\w\w\w$' /usr/share/dict/words | tr '[a-z]' '[A-Z]'))
     actual=${words[$[$RANDOM % ${#words[@]}]]} end=false guess_count=0 max_guess=6
