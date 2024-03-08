@@ -6,7 +6,7 @@ clang_format_dir() {
 
     if [[ $format_cmd ]] ; then
         cd $code_dir
-        find . -name '*.cpp' -or -name '*.h' -or -name '*.hpp' -exec $format_cmd -i --style=file {} \;
+        find . \( -name '*.cpp' -or -name '*.hpp' -or -name '*.h' \) -exec $format_cmd -i --style=file {} \;
         cd - > /dev/null
     else
         >&2 echo "ERROR: No clang-format found in $search_dir"
