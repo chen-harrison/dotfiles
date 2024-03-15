@@ -28,7 +28,6 @@ add_dotfile () {
     ln -sf $dotfile_path $symlink_path
 }
 
-
 dotfiles_dir=$(dirname $0)
 cd $dotfiles_dir
 mkdir -p ${PWD}/prev_dotfiles
