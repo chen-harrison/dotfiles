@@ -12,6 +12,7 @@
         120
     ],
     "explorer.confirmDelete": false,
+    "git.autorefresh": true,
     "git.confirmSync": false,
     "indentRainbow.colors": [
         "rgba(255, 255, 64, 0.5)",
