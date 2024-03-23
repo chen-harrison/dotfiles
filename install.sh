@@ -28,8 +28,8 @@ add_dotfile () {
     ln -sf $dotfile_path $symlink_path
 }
 
-dotfiles_dir=$(dirname $0)
-cd $dotfiles_dir
+script_dir=$(dirname $0)
+cd $script_dir
 mkdir -p ${PWD}/prev_dotfiles
 
 add_dotfile ~/dotfiles/.bash_aliases ~/.bash_aliases
