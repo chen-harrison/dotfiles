@@ -43,3 +43,4 @@ add_dotfile ~/dotfiles/.gitmessage.txt ~/.gitmessage.txt
 add_dotfile ~/dotfiles/.nanorc ~/.nanorc
 add_dotfile ~/dotfiles/.tmux.conf ~/.tmux.conf
 add_dotfile ~/dotfiles/vscode_settings.json ~/.config/Code/User/settings.json
+add_dotfile ~/dotfiles/vscode_tasks.json ~/.config/Code/User/tasks.json
