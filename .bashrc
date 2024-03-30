@@ -139,5 +139,8 @@ fi
 # IP address var
 export ip=$(ip_address)
 
-# fzf
-. /usr/share/doc/fzf/examples/key-bindings.bash
+# Configure fzf, if it exists
+command -v fzf &> /dev/null && source ~/.fzf.bash
+
+# Configure thefuck, if it exists
+command -v thefuck &> /dev/null && eval $(thefuck --alias)

@@ -37,6 +37,7 @@ add_dotfile ~/dotfiles/.bash_functions ~/.bash_functions
 add_dotfile ~/dotfiles/.bashrc ~/.bashrc
 add_dotfile ~/dotfiles/.clang-format ~/.clang-format
 add_dotfile ~/dotfiles/.clang-tidy ~/.clang-tidy
+add_dotfile ~/dotfiles/.fzf.bash ~/.fzf.bash
 add_dotfile ~/dotfiles/.gitconfig ~/.gitconfig
 add_dotfile ~/dotfiles/.gitignore_global ~/.gitignore_global
 add_dotfile ~/dotfiles/.gitmessage.txt ~/.gitmessage.txt
