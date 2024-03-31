@@ -140,7 +140,8 @@ fi
 export ip=$(ip_address)
 
 # Configure fzf, if it exists
-command -v fzf &> /dev/null && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='fd -H .'
+[ -d ~/.fzf ] && source ~/.fzf.bash
 
 # Configure thefuck, if it exists
 command -v thefuck &> /dev/null && eval $(thefuck --alias)
