@@ -7,6 +7,10 @@
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "/usr/include/**"
+    ],
     "C_Cpp.doxygen.generatedStyle": "/**",
     "editor.detectIndentation": false,
     "editor.rulers": [
@@ -43,6 +47,7 @@
             "value": "#3c1464"
         }
     ],
+    "peacock.remoteColor": "#1d63ed",
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.highlights.defaultHighlight": {
         "type": "text"
