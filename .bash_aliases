@@ -1,4 +1,5 @@
 # Misc
+alias fd='fd -H'
 alias brc='. ~/.bashrc'
 alias ip_address="hostname -I | awk '{print \$1}'"
 alias open='xdg-open'
