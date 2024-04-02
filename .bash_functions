@@ -21,6 +21,23 @@ fzf_dir() {
     fd -td . $1 | fzf
 }
 
+docker_attach() {
+    if [[ "$#" -eq 0 ]] ; then
+        echo $(docker ps -lq)
+        docker exec -it $(docker ps -lq) /bin/bash
+    elif [[ "$#" -eq 1 ]] ; then
+        local idx=$(($1+1))
+        local container_id=$(docker ps -q | sed "${idx}q;d")
+        echo $container_id
+        if [[ $container_id ]] ; then
+            docker exec -it $container_id /bin/bash
+        else
+            echo "WARNING: container ID not found at index, attaching to latest"
+            docker exec -it $(docker ps -lq) /bin/bash
+        fi
+    fi
+}
+
 wordle() {
     words=($(grep '^\w\w\w\w\w$' /usr/share/dict/words | tr '[a-z]' '[A-Z]'))
     actual=${words[$[$RANDOM % ${#words[@]}]]} end=false guess_count=0 max_guess=6
