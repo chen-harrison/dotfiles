@@ -22,9 +22,12 @@ fzf_dir() {
 }
 
 docker_attach() {
-    if [[ "$#" -eq 0 ]] ; then
-        echo $(docker ps -lq)
-        docker exec -it $(docker ps -lq) /bin/bash
+    local latest_id=$(docker ps -lq)
+    if [[ ! $latest_id ]] ; then
+        echo 'No docker container running!'
+    elif [[ "$#" -eq 0 ]] ; then
+        echo $latest_id
+        docker exec -it $latest_id /bin/bash
     elif [[ "$#" -eq 1 ]] ; then
         local idx=$(($1+1))
         local container_id=$(docker ps -q | sed "${idx}q;d")
@@ -33,7 +36,7 @@ docker_attach() {
             docker exec -it $container_id /bin/bash
         else
             echo "WARNING: container ID not found at index, attaching to latest"
-            docker exec -it $(docker ps -lq) /bin/bash
+            docker exec -it $latest_id /bin/bash
         fi
     fi
 }
