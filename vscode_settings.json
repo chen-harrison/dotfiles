@@ -47,7 +47,6 @@
             "value": "#3c1464"
         }
     ],
-    "peacock.remoteColor": "#1d63ed",
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.highlights.defaultHighlight": {
         "type": "text"
