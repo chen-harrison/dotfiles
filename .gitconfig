@@ -10,7 +10,7 @@
     s = status
     sw = switch
 
-    dag = log --all --graph --decorate --oneline
+    dag = log --branches --remotes --tags --graph --decorate --oneline
     stash-all = stash --include-untracked
     uncommit = reset --soft HEAD~1
     unstage = restore --staged

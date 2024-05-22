@@ -6,7 +6,7 @@ clang_format_dir() {
 
     if [[ $format_cmd ]] ; then
         cd $code_dir
-        fd -e cpp -e hpp -e h . -x $format_cmd -i --style=file {} \;
+        fd -e cpp -e hpp -e h -x $format_cmd -i --style=file {}
         cd - > /dev/null
     else
         >&2 echo "ERROR: No clang-format found in $search_dir"
