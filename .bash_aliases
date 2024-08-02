@@ -13,4 +13,5 @@ alias dcon='docker container'
 alias docker_prune='docker container prune -f && docker image prune -f'
 
 # ROS
+alias ros_ws_setup='source /opt/ros/noetic/setup.bash && source ~/catkin_ws/devel/setup.bash'
 alias catkin_rebuild='catkin clean -y && catkin build'

@@ -14,8 +14,7 @@
     "C_Cpp.doxygen.generatedStyle": "/**",
     "editor.detectIndentation": false,
     "editor.rulers": [
-        80,
-        120
+        100
     ],
     "explorer.confirmDelete": false,
     "git.autorefresh": true,
@@ -51,9 +50,41 @@
     "todo-tree.highlights.defaultHighlight": {
         "type": "text"
     },
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS):",
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)\\(hchen\\):",
     "todo-tree.tree.expanded": true,
     "todo-tree.tree.flat": true,
     "workbench.colorTheme": "Default Dark Modern",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "psi-header.config": {
+		"forceToTop": true,
+		"blankLinesAfter": 1,
+		"author": "Harrison Chen",
+		"initials": "HC",
+		"authorEmail": "hchen@pdw.ai",
+		"company": "PDW"
+	},
+    "psi-header.templates": [
+        {
+            "language": "*",
+            "template": [
+                "-----------------------------------------------",
+                "PDW Proprietary and Confidential",
+                "-----------------------------------------------",
+                "Copyright (c) 2024 Performance Drone Works LLC.",
+                "-----------------------------------------------",
+                "Created Date: <<filecreated('MM-DD-YYYY')>>",
+                "Author: PDW Autonomy",
+                "-----------------------------------------------",
+                "Last Modified: <<dateformat('MM-DD-YYYY')>>",
+                "Modified By: PDW Autonomy",
+                "-----------------------------------------------"
+            ]
+        }
+    ],
+    "psi-header.changes-tracking": {
+        "autoHeader": "autoSave",
+        "isActive": true,
+        "include": ["cpp", "h", "hpp"]
+    },
+    "diffEditor.ignoreTrimWhitespace": true
 }
