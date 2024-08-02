@@ -41,6 +41,16 @@ docker_attach() {
     fi
 }
 
+wifi_connect() {
+    local ssid=$1
+    (nmcli c up $ssid || nmcli --ask device wifi connect $ssid) > /dev/null
+    if [[ "$?" -eq 0 ]]; then
+        echo "Connected to $ssid"
+    else
+        echo "Failed to connect to $ssid"
+    fi
+}
+
 wordle() {
     words=($(grep '^\w\w\w\w\w$' /usr/share/dict/words | tr '[a-z]' '[A-Z]'))
     actual=${words[$[$RANDOM % ${#words[@]}]]} end=false guess_count=0 max_guess=6
