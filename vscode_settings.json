@@ -13,11 +13,15 @@
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     "cmake.configureOnOpen": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
     "cmake.showOptionsMovedNotification": false,
+    "diffEditor.ignoreTrimWhitespace": true,
     "editor.detectIndentation": false,
     "editor.rulers": [
-        80,
-        120
+        100
     ],
     "explorer.confirmDelete": false,
     "git.autorefresh": true,
@@ -50,11 +54,46 @@
             "value": "#3c1464"
         }
     ],
+    "psi-header.changes-tracking": {
+        "autoHeader": "autoSave",
+        "include": [
+            "cpp",
+            "h",
+            "hpp"
+        ],
+        "isActive": true
+    },
+    "psi-header.config": {
+        "author": "Harrison Chen",
+        "authorEmail": "hchen@pdw.ai",
+        "blankLinesAfter": 1,
+        "company": "PDW",
+        "forceToTop": true,
+        "initials": "HC"
+    },
+    "psi-header.templates": [
+        {
+            "language": "*",
+            "template": [
+                "-----------------------------------------------",
+                "PDW Proprietary and Confidential",
+                "-----------------------------------------------",
+                "Copyright (c) 2024 Performance Drone Works LLC.",
+                "-----------------------------------------------",
+                "Created Date: <<filecreated('MM-DD-YYYY')>>",
+                "Author: PDW Autonomy",
+                "-----------------------------------------------",
+                "Last Modified: <<dateformat('MM-DD-YYYY')>>",
+                "Modified By: PDW Autonomy",
+                "-----------------------------------------------"
+            ]
+        }
+    ],
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.highlights.defaultHighlight": {
         "type": "text"
     },
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS):",
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)\\(hchen\\):",
     "todo-tree.tree.expanded": true,
     "todo-tree.tree.flat": true,
     "workbench.colorTheme": "Default Dark Modern",
