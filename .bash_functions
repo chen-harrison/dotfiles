@@ -14,11 +14,11 @@ clang_format_dir() {
 }
 
 fzf_file() {
-    fd -tf . $1 | fzf
+    fd -tf $1 $2 | fzf
 }
 
 fzf_dir() {
-    fd -td . $1 | fzf
+    fd -td $1 $2 | fzf
 }
 
 docker_attach() {
