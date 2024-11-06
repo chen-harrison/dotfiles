@@ -1,7 +1,4 @@
 {
-    "[cpp]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools"
-    },
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "C_Cpp.clang_format_style": "file",
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
@@ -12,6 +9,11 @@
         "/usr/include/**"
     ],
     "C_Cpp.doxygen.generatedStyle": "/**",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "cmake.configureOnOpen": false,
+    "cmake.showOptionsMovedNotification": false,
     "editor.detectIndentation": false,
     "editor.rulers": [
         80,
@@ -20,6 +22,7 @@
     "explorer.confirmDelete": false,
     "git.autorefresh": true,
     "git.confirmSync": false,
+    "gitlens.launchpad.indicator.enabled": false,
     "indentRainbow.colors": [
         "rgba(255, 255, 64, 0.5)",
         "rgba(127, 255, 127, 0.5)",
