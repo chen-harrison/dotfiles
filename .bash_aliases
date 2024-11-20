@@ -14,3 +14,7 @@ alias docker_prune='docker container prune -f && docker image prune -f'
 
 # ROS
 alias catkin_rebuild='catkin clean -y && catkin build'
+
+# NAS
+alias mount_nas='sudo mount -t nfs 10.10.62.55:/volume1/Data ~/NAS'
+alias unmount_nas='sudo umount ~/NAS'
