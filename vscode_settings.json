@@ -12,6 +12,16 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
+    "[css]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[html]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
     "editor.detectIndentation": false,
@@ -22,6 +32,7 @@
     "explorer.confirmDelete": false,
     "git.autorefresh": true,
     "git.confirmSync": false,
+    "gitlens.blame.avatars": false,
     "gitlens.launchpad.indicator.enabled": false,
     "indentRainbow.colors": [
         "rgba(255, 255, 64, 0.5)",
