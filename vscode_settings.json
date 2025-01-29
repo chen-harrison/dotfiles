@@ -43,6 +43,12 @@
     "indentRainbow.errorColor": "rgba(255,255,255,0.05)",
     "indentRainbow.indicatorStyle": "light",
     "indentRainbow.lightIndicatorStyleLineWidth": 1,
+    "latex-workshop.formatting.latex": "tex-fmt",
+    "latex-workshop.formatting.tex-fmt.args": [
+        "--wraplen",
+        "100"
+    ],
+    "latex-workshop.formatting.tex-fmt.path": "/usr/bin/tex-fmt",
     "peacock.favoriteColors": [
         {
             "name": "Red",
