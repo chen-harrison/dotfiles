@@ -1,4 +1,5 @@
 # Misc
+alias t='tmux'
 alias fd='fd -H'
 alias brc='. ~/.bashrc'
 alias ip_address="hostname -I | awk '{print \$1}'"
