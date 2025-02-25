@@ -139,9 +139,18 @@ fi
 # IP address var
 export ip=$(ip_address)
 
-# Configure fzf, if it exists
+# fzf
 export FZF_DEFAULT_COMMAND='fd -H .'
 [ -d ~/.fzf ] && source ~/.fzf.bash
 
-# Configure thefuck, if it exists
+# thefuck
 command -v thefuck &> /dev/null && eval $(thefuck --alias)
+
+# nnn
+export NNN_TRASH=1
+export NNN_PLUG='p:preview-tui;f:fzcd'
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_BMS="r:$HOME/chen-harrison.github.io/resume"
+
+# fasd
+command -v fasd &> /dev/null && eval "$(fasd --init auto)"
