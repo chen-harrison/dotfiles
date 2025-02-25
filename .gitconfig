@@ -4,8 +4,10 @@
 [alias]
     a = add
     c = commit
+    ca = commit --amend
     f = fetch
     ps = push
+    psf = push --force-with-lease
     pl = pull
     s = status
     sw = switch
