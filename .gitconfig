@@ -5,6 +5,7 @@
     a = add
     c = commit
     ca = commit --amend
+    co = checkout
     f = fetch
     ps = push
     psf = push --force-with-lease
