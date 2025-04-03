@@ -1,17 +1,16 @@
 check_help() {
-    if [[ "$#" -eq 1 ]] && [[ "$1" == '-h' || "$1" == '--help' ]] ; then
+    if [[ $# -eq 1 && ($1 == "-h" || $1 == "--help") ]] ; then
         return
     fi
     return 1
 }
 
 clang_format_dir() {
-    # if check_help "$@" ; then
     if [[ $# -ne 1 ]] || check_help "$@" ; then
         echo "Usage: ${FUNCNAME[0]} TARGET_DIR"
         echo "Recursively apply clang-format formatting to all C++ files in a target directory."
         return
-    elif [ ! -d "$1" ] ; then
+    elif [[ ! -d $1 ]] ; then
         echo "ERROR: '$1' not a valid directory" >&2
         return 1
     fi
@@ -22,7 +21,7 @@ clang_format_dir() {
     local format_cmd
     format_cmd=$(fd -tf clang-format "$clang_format_dir" | sort | tail -1)
 
-    if [[ $format_cmd ]] ; then
+    if [[ -f $format_cmd ]] ; then
         # Enter into the target directory, filter for C++ files, then execute
         # clang-format on them, and return to previous dir
         cd "$target_dir"
@@ -63,12 +62,12 @@ docker_attach() {
     # Grab the ID of most recent running container
     local latest_id
     latest_id=$(docker container ls -lq -f 'status=running')
-    if [[ ! "$latest_id" ]] ; then
+    if [[ -z $latest_id ]] ; then
         echo 'No Docker container running!'
-    elif [[ "$#" -eq 0 ]] ; then
+    elif [[ $# -eq 0 ]] ; then
         echo "$latest_id"
         docker exec -it "$latest_id" /bin/bash
-    elif [[ "$#" -eq 1 ]] ; then
+    elif [[ $# -eq 1 ]] ; then
         local idx=$1
         # Increment idx by 1 because we're capturing using line number (e.g. idx 0 at line 1)
         local container_id
@@ -81,6 +80,33 @@ docker_attach() {
             docker exec -it "$latest_id" /bin/bash
         fi
     fi
+}
+
+docker_run() {
+    if [[ $# -ne 1 ]] || check_help "$@" ; then
+        echo "Usage: ${FUNCNAME[0]} DOCKER_IMAGE"
+        echo "Run docker image with interactive terminal and commonly used options (networking, GUI, etc.)"
+        return
+    fi
+
+    local image=$1
+
+    # Give docker access
+    xhost +local:docker
+
+    docker run \
+        --rm \
+        -it \
+        --net=host \
+        --ipc=host \
+        --privileged \
+        -e DISPLAY="$DISPLAY" \
+        -e QT_X11_NO_MITSHM=1 \
+        -e XAUTHORITY="$XAUTH" \
+        -e XDG_RUNTIME_DIR=/tmp/runtime-root \
+        -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+        "$image" \
+        /bin/bash
 }
 
 wifi_connect() {
@@ -127,57 +153,4 @@ n ()
         . "$NNN_TMPFILE"
         rm -f -- "$NNN_TMPFILE" > /dev/null
     }
-}
-
-wordle() {
-    words=($(grep '^\w\w\w\w\w$' /usr/share/dict/words | tr '[a-z]' '[A-Z]'))
-    actual=${words[$[$RANDOM % ${#words[@]}]]} end=false guess_count=0 max_guess=6
-    if [[ $1 == "unlimit" ]] ; then
-        max_guess=999999
-    fi
-    while [[ $end != true ]]; do
-        guess_count=$(( $guess_count + 1 ))
-        if [[ $guess_count -le $max_guess ]] ; then
-            echo "Enter your guess ($guess_count / $max_guess):"
-            read guess
-            guess=$(echo $guess | tr '[a-z]' '[A-Z]')
-            if [[ " ${words[*]} " =~ " $guess " ]] ; then
-                output="" remaining=""
-                if [[ $actual == $guess ]] ; then
-                    echo "You guessed right!"
-                    for ((i = 0; i < ${#actual}; i++)); do
-                        output+="\033[30;102m ${guess:$i:1} \033[0m"
-                    done
-                    printf "$output\n"
-                    end=true
-                else
-                    for ((i = 0; i < ${#actual}; i++)); do
-                        if [[ "${actual:$i:1}" != "${guess:$i:1}" ]] ; then
-                            remaining+=${actual:$i:1}
-                        fi
-                    done
-                    for ((i = 0; i < ${#actual}; i++)); do
-                        if [[ "${actual:$i:1}" != "${guess:$i:1}" ]] ; then
-                            if [[ "$remaining" == *"${guess:$i:1}"* ]] ; then
-                                output+="\033[30;103m ${guess:$i:1} \033[0m"
-                                remaining=${remaining/"${guess:$i:1}"/}
-                            else
-                                output+="\033[30;107m ${guess:$i:1} \033[0m"
-                            fi
-                        else
-                            output+="\033[30;102m ${guess:$i:1} \033[0m"
-                        fi
-                    done
-                    printf "$output\n"
-                fi
-            else
-                echo "Please enter a valid word with 5 letters!";
-                guess_count=$(( $guess_count - 1 ))
-            fi
-        else
-            echo "You lose! The word is:"
-            echo $actual
-            end=true
-        fi
-    done
 }
