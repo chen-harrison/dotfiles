@@ -40,7 +40,7 @@ fzf_file() {
         return
     fi
 
-    fd -tf "$1" "$2" | fzf
+    fd -tf $1 $2 | fzf
 }
 
 fzf_dir() {
@@ -50,7 +50,7 @@ fzf_dir() {
         return
     fi
 
-    fd -td "$1" "$2" | fzf
+    fd -td $1 $2 | fzf
 }
 
 docker_attach() {
