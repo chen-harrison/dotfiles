@@ -150,7 +150,7 @@ command -v thefuck &> /dev/null && eval $(thefuck --alias)
 export NNN_TRASH=1
 export NNN_PLUG='p:preview-tui;f:fzcd'
 export NNN_FIFO=/tmp/nnn.fifo
-export NNN_BMS="r:$HOME/chen-harrison.github.io/resume"
+export NNN_BMS="d:$HOME/dotfiles;"
 
 # fasd
 command -v fasd &> /dev/null && eval "$(fasd --init auto)"
