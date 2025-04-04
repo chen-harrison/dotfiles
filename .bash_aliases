@@ -7,6 +7,7 @@ alias open='xdg-open'
 alias cl='clear'
 alias cuda_reset='sudo rmmod nvidia_uvm && sudo modprobe nvidia_uvm'
 alias wifi_list='nmcli device wifi list'
+alias lzd='lazydocker'
 
 # Docker
 alias dima='docker image'
