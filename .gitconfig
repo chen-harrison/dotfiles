@@ -13,6 +13,7 @@
     s = status
     sw = switch
 
+    aliases = config --get-regexp ^alias
     dag = log --branches --remotes --tags --graph --decorate --oneline
     stash-all = stash --include-untracked
     uncommit = reset --soft HEAD~1
