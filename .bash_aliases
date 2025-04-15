@@ -1,4 +1,5 @@
 # Misc
+alias g='git'
 alias t='tmux'
 alias fd='fd -H'
 alias brc='. ~/.bashrc'
