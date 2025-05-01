@@ -43,5 +43,6 @@ add_dotfile ~/dotfiles/.gitignore_global ~/.gitignore_global
 add_dotfile ~/dotfiles/.gitmessage.txt ~/.gitmessage.txt
 add_dotfile ~/dotfiles/.nanorc ~/.nanorc
 add_dotfile ~/dotfiles/.tmux.conf ~/.tmux.conf
-add_dotfile ~/dotfiles/vscode_settings.json ~/.config/Code/User/settings.json
-add_dotfile ~/dotfiles/vscode_tasks.json ~/.config/Code/User/tasks.json
+add_dotfile ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
+add_dotfile ~/dotfiles/vscode/tasks.json ~/.config/Code/User/tasks.json
+add_dotfile ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
