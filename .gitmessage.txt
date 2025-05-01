@@ -1,5 +1,5 @@
-#### Capitalized, short (<=50 chars) summary ####
+##### Capitalized, short (<=50 char) summary #####
 
 
 
-###### Multi-line description, paragraph or bullets (<=72 chars) ######
+####### Multi-line description, paragraph or bullets (<=72 char) #######
