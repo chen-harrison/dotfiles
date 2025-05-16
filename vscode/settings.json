@@ -68,6 +68,9 @@
             "value": "#3c1464"
         }
     ],
+    "todo-tree.filtering.excludeGlobs": [
+        "**/.git/COMMIT_EDITMSG"
+    ],
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.highlights.defaultHighlight": {
         "type": "text"
@@ -75,6 +78,7 @@
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS):",
     "todo-tree.tree.expanded": true,
     "todo-tree.tree.flat": true,
+    "vsicons.dontShowNewVersionMessage": true,
     "workbench.colorTheme": "Default Dark Modern",
     "workbench.iconTheme": "vscode-icons"
 }
