@@ -24,6 +24,13 @@
     "C_Cpp.doxygen.generatedStyle": "/**",
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
+    "dev.containers.defaultExtensions": [
+        "Gruntfuggly.todo-tree",
+        "mhutchie.git-graph",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.python",
+        "oderwat.indent-rainbow"
+    ],
     "editor.detectIndentation": false,
     "editor.fontFamily": "'DroidSansM Nerd Font Mono', 'monospace', monospace",
     "editor.rulers": [
@@ -33,6 +40,9 @@
     "explorer.confirmDelete": false,
     "git.autorefresh": true,
     "git.confirmSync": false,
+    "github.copilot.enable": {
+        "*": false
+    },
     "gitlens.blame.avatars": false,
     "gitlens.launchpad.indicator.enabled": false,
     "indentRainbow.colors": [
@@ -70,6 +80,13 @@
     ],
     "todo-tree.filtering.excludeGlobs": [
         "**/.git/COMMIT_EDITMSG"
+    ],
+    "remote.SSH.defaultExtensions": [
+        "Gruntfuggly.todo-tree",
+        "mhutchie.git-graph",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.python",
+        "oderwat.indent-rainbow"
     ],
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.highlights.defaultHighlight": {
