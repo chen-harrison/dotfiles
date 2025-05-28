@@ -143,8 +143,8 @@ export ip=$(ip_address)
 export FZF_DEFAULT_COMMAND='fd -H .'
 [ -d ~/.fzf ] && source ~/.fzf.bash
 
-# thefuck
-command -v thefuck &> /dev/null && eval $(thefuck --alias)
+# # thefuck
+# command -v thefuck &> /dev/null && eval $(thefuck --alias)
 
 # nnn
 export NNN_TRASH=1

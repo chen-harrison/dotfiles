@@ -124,6 +124,12 @@ wifi_connect() {
     fi
 }
 
+update_discord() {
+    wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+    sudo dpkg -i discord.deb
+    rm discord.deb
+}
+
 n ()
 {
     # Block nesting of nnn in subshells
