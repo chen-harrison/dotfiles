@@ -136,21 +136,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# IP address var
-export ip=$(ip_address)
-
 # fzf
-export FZF_DEFAULT_COMMAND='fd -H .'
-[ -d ~/.fzf ] && source ~/.fzf.bash
+[ -d ~/.fzf ] && \
+    export FZF_DEFAULT_COMMAND='fd -H .' && \
+    source ~/.fzf.bash
 
-# # thefuck
-# command -v thefuck &> /dev/null && eval $(thefuck --alias)
+# thefuck
+command -v thefuck &> /dev/null && eval $(thefuck --alias)
 
 # nnn
-export NNN_TRASH=1
-export NNN_PLUG='p:preview-tui;f:fzcd'
-export NNN_FIFO=/tmp/nnn.fifo
-export NNN_BMS="d:$HOME/dotfiles;"
+command -v nnn &> /dev/null && \
+    export NNN_TRASH=1 && \
+    export NNN_PLUG='p:preview-tui;f:fzcd' && \
+    export NNN_FIFO=/tmp/nnn.fifo && \
+    export NNN_BMS="d:$HOME/dotfiles;"
 
 # fasd
 command -v fasd &> /dev/null && eval "$(fasd --init auto)"
