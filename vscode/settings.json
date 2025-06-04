@@ -14,6 +14,9 @@
     },
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "C_Cpp.clang_format_style": "file",
+    "C_Cpp.codeAnalysis.clangTidy.args": [
+        "--config-file=/home/harrison/.clang-tidy"
+    ],
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "C_Cpp.default.cppStandard": "c++17",
@@ -78,15 +81,15 @@
             "value": "#3c1464"
         }
     ],
-    "todo-tree.filtering.excludeGlobs": [
-        "**/.git/COMMIT_EDITMSG"
-    ],
     "remote.SSH.defaultExtensions": [
         "Gruntfuggly.todo-tree",
         "mhutchie.git-graph",
         "ms-vscode.cpptools-extension-pack",
         "ms-python.python",
         "oderwat.indent-rainbow"
+    ],
+    "todo-tree.filtering.excludeGlobs": [
+        "**/.git/COMMIT_EDITMSG"
     ],
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.highlights.defaultHighlight": {
