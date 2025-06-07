@@ -82,29 +82,62 @@ docker_attach() {
     fi
 }
 
+match_docker_image() {
+    local image_search_str=$1
+
+    # List of images
+    local image_list
+    image_list=$(docker images --format '{{.Repository}}:{{.Tag}}')
+
+    # If input is an exact match, use it - otherwise, use normal matching and see if there's a single result
+    if echo "$image_list" | grep -Fxq "$image_search_str" ; then
+        echo "$image_search_str"
+    else
+        matches=($(echo "$image_list" | grep -i "$image_search_str"))
+        if [[ "${#matches[@]}" -eq 1 ]] ; then
+            echo "${matches[0]}"
+        elif [[ "${#matches[@]}" -eq 0 ]] ; then
+            echo "No matching Docker image found for '$image_search_str' - aborting" >&2
+            return 1
+        else
+            echo "Multiple matches found for '$image_search_str' - aborting" >&2
+            return 1
+        fi
+    fi
+}
+
 docker_run() {
     if [[ $# -ne 1 ]] || check_help "$@" ; then
         echo "Usage: ${FUNCNAME[0]} DOCKER_IMAGE"
-        echo "Run docker image with interactive terminal and commonly used options (networking, GUI, etc.)"
+        echo "Run Docker image with interactive terminal and commonly used options (networking, GUI, etc.)"
         return
     fi
 
-    local image=$1
+    # Get the Docker image name
+    image=$(match_docker_image $1) || return 1
 
-    # Give docker access
-    xhost +local:docker
+    # Capture the home directory of the default Docker user
+    DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
 
+    # Give Docker access
+    xhost +local:docker &> /dev/null
+
+    echo "Running $image"
     docker run \
         --rm \
         -it \
+        --init \
+        --privileged \
         --net=host \
         --ipc=host \
-        --privileged \
         -e DISPLAY="$DISPLAY" \
         -e QT_X11_NO_MITSHM=1 \
         -e XAUTHORITY="$XAUTH" \
         -e XDG_RUNTIME_DIR=/tmp/runtime-root \
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+        -v "$HOME"/.bashrc:"$DOCKER_HOME"/.bashrc \
+        -v "$HOME"/.bash_aliases:"$DOCKER_HOME"/.bash_aliases \
+        -v "$HOME"/.bash_functions:"$DOCKER_HOME"/.bash_functions \
         "$image" \
         /bin/bash
 }
