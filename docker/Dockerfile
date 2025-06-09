@@ -13,14 +13,15 @@ ARG USERNAME=user
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-# Create new user according to above info, unless that user already exists
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+# Create new user (unless that user already exists) + give sudo permissions
+RUN if ! id -u "$USER_UID" &>/dev/null; then \
+        groupadd --gid "$USER_GID" "$USERNAME" \
+        && useradd --uid "$USER_UID" --gid "$USER_GID" -m "$USERNAME"; \
+    fi \
     && apt-get update \
     && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
-    || true
+    && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
 
 # Essential packages
 RUN apt-get update && apt-get install -y \
@@ -42,6 +43,9 @@ RUN wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Ubuntu
     && fc-cache -f \
     && rm UbuntuMono.zip DroidSansMono.zip
 
+# clangd
+RUN apt-get update && apt-get install -y clangd-19
+
 # fd
 RUN apt-get update && apt-get install -y fd-find \
     && ln -s "$(which fdfind)" /usr/bin/fd
@@ -61,10 +65,7 @@ RUN git clone https://github.com/jarun/nnn.git \
     
 # Make non-root user the default
 USER $USER_UID
-
-# fzf (needs to happen after user set due to using ~)
-RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
-    && ~/.fzf/install --key-bindings --completion --update-rc
+WORKDIR /home/$USERNAME
 
 CMD ["bash"]
 ENTRYPOINT ["/ros_entrypoint.sh"]

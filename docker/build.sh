@@ -14,9 +14,9 @@ if [[ $# -ne 1 ]] || check_help "$@" ; then
 fi
 
 BASE_IMAGE=$1
-USERNAME=$(whoami)
 USER_UID=$(id -u)
 USER_GID=$(id -g)
+USERNAME=$(docker run --rm -u "$USER_UID" "$BASE_IMAGE" whoami 2> /dev/null) || USERNAME=$(whoami)
 
 docker build \
     --build-arg BASE_IMAGE=$BASE_IMAGE \
