@@ -4,9 +4,6 @@ Checks: >
   bugprone-*,
   cppcoreguidelines-*,
   misc-*,
-  modernize-*,
   performance-*,
   readability-*,
-
-  -modernize-use-trailing-return-type,
 ...

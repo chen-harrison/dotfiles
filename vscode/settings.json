@@ -1,6 +1,6 @@
 {
     "[cpp]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools"
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
     "[css]": {
         "editor.detectIndentation": false,
@@ -12,12 +12,8 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2
     },
-    "C_Cpp.clang_format_fallbackStyle": "Google",
     "C_Cpp.clang_format_style": "file",
-    "C_Cpp.codeAnalysis.clangTidy.args": [
-        "--config-file=/home/harrison/.clang-tidy"
-    ],
-    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.codeAnalysis.clangTidy.enabled": false,
     "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "C_Cpp.default.cppStandard": "c++17",
     "C_Cpp.default.includePath": [
@@ -25,10 +21,13 @@
         "/usr/include/**"
     ],
     "C_Cpp.doxygen.generatedStyle": "/**",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.path": "/usr/bin/clangd-19",
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
     "dev.containers.defaultExtensions": [
         "Gruntfuggly.todo-tree",
+        "llvm-vs-code-extensions.vscode-clangd",
         "mhutchie.git-graph",
         "ms-vscode.cpptools-extension-pack",
         "ms-python.python",
