@@ -77,6 +77,11 @@ else
     # Include git branch + remove host
     PS1='${debian_chroot:+($debian_chroot)}\u:\w$(__git_ps1 " (%s)")\$ '
 fi
+
+if [ -e /.dockerenv ]; then
+    PS1="🐋 $PS1"
+fi
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
