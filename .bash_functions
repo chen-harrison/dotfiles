@@ -148,14 +148,16 @@ docker_run_dot() {
     fi
 
     # Get the Docker image name
-    local image=$(__match_docker_image $1) || return 1
+    local image
+    image=$(__match_docker_image $1) || return 1
     shift
 
     # Store the remaining args in an array
     local args=( "$@" )
 
     # Capture the home directory of the default Docker user
-    local DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
+    local DOCKER_HOME
+    DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
 
     __docker_run "$image" \
         -v "$HOME"/.bashrc:"$DOCKER_HOME"/.bashrc \
@@ -174,10 +176,12 @@ docker_run_ros() {
     fi
 
     # Get the Docker image name
-    local image=$(__match_docker_image $1) || return 1
+    local image
+    image=$(__match_docker_image $1) || return 1
 
     # Capture the home directory of the default Docker user
-    local DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
+    local DOCKER_HOME
+    DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
 
     docker_run_dot "$image" \
         -v "$HOME"/ros2_ws:"$DOCKER_HOME"/ros2_ws
