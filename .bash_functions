@@ -1,3 +1,7 @@
+C_RED="\e[0;31m"
+C_GREEN="\e[0;32m"
+C_RESET="\e[0m"
+
 check_help() {
     if [[ $# -eq 1 && ($1 == "-h" || $1 == "--help") ]] ; then
         return
@@ -82,7 +86,7 @@ docker_attach() {
     fi
 }
 
-match_docker_image() {
+__match_docker_image() {
     local image_search_str=$1
 
     # List of images
@@ -106,23 +110,19 @@ match_docker_image() {
     fi
 }
 
-docker_run() {
-    if [[ $# -ne 1 ]] || check_help "$@" ; then
-        echo "Usage: ${FUNCNAME[0]} DOCKER_IMAGE"
-        echo "Run Docker image with interactive terminal and commonly used options (networking, GUI, etc.)"
-        return
-    fi
-
+__docker_run() {
     # Get the Docker image name
-    image=$(match_docker_image $1) || return 1
+    local image="$1"
+    shift
 
-    # Capture the home directory of the default Docker user
-    DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
+    # Store the remaining args in an array
+    local args=( "$@" )
 
     # Give Docker access
     xhost +local:docker &> /dev/null
 
-    echo "Running $image"
+    echo -e "${C_GREEN}Running $image${C_RESET}"
+
     docker run \
         --rm \
         -it \
@@ -135,11 +135,52 @@ docker_run() {
         -e XAUTHORITY="$XAUTH" \
         -e XDG_RUNTIME_DIR=/tmp/runtime-root \
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+        ${args[@]} \
+        "$image" \
+        /bin/bash
+}
+
+docker_run_dot() {
+    if [[ $# -eq 0 ]] || check_help "$@" ; then
+        echo "Usage: ${FUNCNAME[0]} DOCKER_IMAGE [DOCKER_RUN_ARGS ...]"
+        echo "Run Docker image with dotfiles mounted"
+        return
+    fi
+
+    # Get the Docker image name
+    local image=$(__match_docker_image $1) || return 1
+    shift
+
+    # Store the remaining args in an array
+    local args=( "$@" )
+
+    # Capture the home directory of the default Docker user
+    local DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
+
+    __docker_run "$image" \
         -v "$HOME"/.bashrc:"$DOCKER_HOME"/.bashrc \
         -v "$HOME"/.bash_aliases:"$DOCKER_HOME"/.bash_aliases \
         -v "$HOME"/.bash_functions:"$DOCKER_HOME"/.bash_functions \
-        "$image" \
-        /bin/bash
+        -v "$HOME"/.gitconfig:"$DOCKER_HOME"/.gitconfig \
+        -v "$HOME"/.gitignore_global:"$DOCKER_HOME"/.gitignore_global \
+        ${args[@]}
+}
+
+docker_run_ros() {
+    if [[ $# -ne 1 ]] || check_help "$@" ; then
+        echo "Usage: ${FUNCNAME[0]} DOCKER_IMAGE"
+        echo "Run Docker image with ROS 2 workspace directories and dotfiles mounted"
+        return
+    fi
+
+    # Get the Docker image name
+    local image=$(__match_docker_image $1) || return 1
+
+    # Capture the home directory of the default Docker user
+    local DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
+
+    docker_run_dot "$image" \
+        -v "$HOME"/ros2_ws:"$DOCKER_HOME"/ros2_ws
 }
 
 wifi_connect() {
