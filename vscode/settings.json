@@ -22,7 +22,7 @@
     ],
     "C_Cpp.doxygen.generatedStyle": "/**",
     "C_Cpp.intelliSenseEngine": "disabled",
-    "clangd.path": "/usr/bin/clangd-19",
+    "clangd.path": "/usr/bin/clangd",
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
     "dev.containers.defaultExtensions": [

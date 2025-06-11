@@ -155,4 +155,4 @@ command -v nnn &> /dev/null && \
 command -v fasd &> /dev/null && eval "$(fasd --init auto)"
 
 # clangd
-command -v clangd-19 &> /dev/null && export CMAKE_EXPORT_COMPILE_COMMANDS=1
+command -v clangd &> /dev/null && export CMAKE_EXPORT_COMPILE_COMMANDS=1
