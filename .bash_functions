@@ -123,11 +123,11 @@ __docker_run() {
 
     echo -e "${C_GREEN}Running $image${C_RESET}"
 
+    # Access to GUI, SSH, GPG
     docker run \
         --rm \
         -it \
         --init \
-        --privileged \
         --net=host \
         --ipc=host \
         -e DISPLAY="$DISPLAY" \
@@ -135,6 +135,10 @@ __docker_run() {
         -e XAUTHORITY="$XAUTH" \
         -e XDG_RUNTIME_DIR=/tmp/runtime-root \
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+        -v "$SSH_AUTH_SOCK":/ssh-agent \
+        -e SSH_AUTH_SOCK=/ssh-agent \
+        -v "$(gpgconf --list-dirs agent-extra-socket)":/gpg-agent \
+        -e GPG_AGENT_INFO=/gpg-agent \
         ${args[@]} \
         "$image" \
         /bin/bash
@@ -160,6 +164,7 @@ docker_run_dot() {
     DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
 
     __docker_run "$image" \
+        -v "$HOME"/.ssh/known_hosts:"$DOCKER_HOME"/.ssh/known_hosts \
         -v "$HOME"/.bashrc:"$DOCKER_HOME"/.bashrc \
         -v "$HOME"/.bash_aliases:"$DOCKER_HOME"/.bash_aliases \
         -v "$HOME"/.bash_functions:"$DOCKER_HOME"/.bash_functions \
