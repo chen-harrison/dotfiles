@@ -14,4 +14,10 @@ alias lzg='lazygit'
 # Docker
 alias dima='docker image'
 alias dcon='docker container'
+alias dcu='docker compose up'
+alias dcd='docker compose down'
 alias docker_prune='docker container prune -f && docker image prune -f'
+
+# ROS 2
+alias colcon_clean='rm -rf build install log'
+alias ros2_setup='source install/setup.bash'
