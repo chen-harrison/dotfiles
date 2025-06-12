@@ -64,18 +64,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# Manage a git_ps variable that populates with git info if __git_ps1 exists
+update_git_ps() {
+    if declare -F __git_ps1 > /dev/null; then
+        git_ps="$(__git_ps1 ' (%s)')"
+    else
+        git_ps=""
+    fi
+}
+PROMPT_COMMAND="update_git_ps${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
+# Change \u to \u@\h to include host
 if [ "$color_prompt" = yes ]; then
-    # Default
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-    # Include git branch + remove host
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u\[\e[0m\]:\[\e[01;34m\]\w\[\e[00;35m\]$(__git_ps1 " (%s)")\[\e[0m\]$([ $? == 0 ] && echo "$" || echo "\[\e[31m\]$\[\e[0m\]") '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u\[\e[0m\]:\[\e[01;34m\]\w\[\e[00;35m\]$git_ps\[\e[0m\]$([ $? == 0 ] && echo "$" || echo "\[\e[31m\]$\[\e[0m\]") '
 else
-    # Default
-    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-
-    # Include git branch + remove host
-    PS1='${debian_chroot:+($debian_chroot)}\u:\w$(__git_ps1 " (%s)")\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u:\w$git_ps\$ '
 fi
 
 if [ -e /.dockerenv ]; then
