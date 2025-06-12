@@ -27,7 +27,7 @@
 [fetch]
     prune = true
 [help]
-    autoCorrect = true
+    autoCorrect = immediate
 [init]
     defaultBranch = main
 [pull]
