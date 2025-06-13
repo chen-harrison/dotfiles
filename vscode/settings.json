@@ -33,6 +33,7 @@
         "ms-python.python",
         "oderwat.indent-rainbow"
     ],
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.detectIndentation": false,
     "editor.fontFamily": "'DroidSansM Nerd Font Mono', 'monospace', monospace",
     "editor.rulers": [
@@ -40,6 +41,7 @@
         120
     ],
     "explorer.confirmDelete": false,
+    "extensions.ignoreRecommendations": true,
     "git.autorefresh": true,
     "git.confirmSync": false,
     "github.copilot.enable": {
