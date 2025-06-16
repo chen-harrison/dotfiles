@@ -123,13 +123,14 @@ __docker_run() {
 
     echo -e "${C_GREEN}Running $image${C_RESET}"
 
-    # Access to GUI, SSH, GPG
+    # Access to GUI, SSH, GPG; correct time zone
     docker run \
         --rm \
         -it \
         --init \
         --net=host \
         --ipc=host \
+        -e TZ="$(cat /etc/timezone)" \
         -e DISPLAY="$DISPLAY" \
         -e QT_X11_NO_MITSHM=1 \
         -e XAUTHORITY="$XAUTH" \
