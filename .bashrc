@@ -164,3 +164,15 @@ command -v fasd &> /dev/null && eval "$(fasd --init auto)"
 
 # clangd
 command -v clangd &> /dev/null && export CMAKE_EXPORT_COMPILE_COMMANDS=1
+
+# ROS 2 + colcon
+[ -f /opt/ros/$ROS_DISTRO/setup.bash ] && source /opt/ros/$ROS_DISTRO/setup.bash
+
+[ -d /usr/share/colcon_cd ] && \
+    source /usr/share/colcon_cd/function/colcon_cd.sh && \
+    export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
+
+[ -d /usr/share/colcon_argcomplete ] && \
+    source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+
+return 0
