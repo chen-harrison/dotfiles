@@ -137,11 +137,11 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 # fzf
@@ -167,11 +167,9 @@ command -v clangd &> /dev/null && export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
 # ROS 2 + colcon
 [ -f /opt/ros/$ROS_DISTRO/setup.bash ] && source /opt/ros/$ROS_DISTRO/setup.bash
-
 [ -d /usr/share/colcon_cd ] && \
     source /usr/share/colcon_cd/function/colcon_cd.sh && \
     export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
-
 [ -d /usr/share/colcon_argcomplete ] && \
     source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 
