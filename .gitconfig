@@ -32,6 +32,8 @@
     defaultBranch = main
 [pull]
     ff = only
+[push]
+    autoSetupRemote = true
 [status]
     branch = true
     short = true
