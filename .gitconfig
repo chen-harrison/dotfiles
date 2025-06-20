@@ -5,6 +5,7 @@
     a = add
     c = commit
     ca = commit --amend
+    can = commit --amend --no-edit
     co = checkout
     f = fetch
     ps = push
@@ -13,6 +14,7 @@
     s = status
     su = submodule update --init --recursive
     sw = switch
+    swc = switch --create
 
     aliases = config --get-regexp ^alias
     dag = log --branches --remotes --tags --graph --decorate --oneline
