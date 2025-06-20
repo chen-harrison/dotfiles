@@ -173,4 +173,4 @@ command -v clangd &> /dev/null && export CMAKE_EXPORT_COMPILE_COMMANDS=1
 [ -d /usr/share/colcon_argcomplete ] && \
     source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 
-return 0
+true
