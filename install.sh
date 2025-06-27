@@ -46,3 +46,4 @@ add_dotfile ~/dotfiles/.tmux.conf ~/.tmux.conf
 add_dotfile ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 add_dotfile ~/dotfiles/vscode/tasks.json ~/.config/Code/User/tasks.json
 add_dotfile ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+add_dotfile ~/dotfiles/vscode/snippets.code-snippets ~/.config/Code/User/snippets/snippets.code-snippets

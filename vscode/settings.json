@@ -89,6 +89,7 @@
         "ms-python.python",
         "oderwat.indent-rainbow"
     ],
+    "telemetry.telemetryLevel": "off",
     "todo-tree.filtering.excludeGlobs": [
         "**/.git/COMMIT_EDITMSG"
     ],
