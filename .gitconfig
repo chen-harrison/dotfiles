@@ -15,6 +15,7 @@
     su = submodule update --init --recursive
     sw = switch
     swc = switch --create
+    swr = switch --recurse-submodules
 
     aliases = config --get-regexp ^alias
     dag = log --branches --remotes --tags --graph --decorate --oneline
