@@ -82,6 +82,7 @@
             "value": "#3c1464"
         }
     ],
+    "python.analysis.typeCheckingMode": "standard",
     "remote.SSH.defaultExtensions": [
         "Gruntfuggly.todo-tree",
         "mhutchie.git-graph",
