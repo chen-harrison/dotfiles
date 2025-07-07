@@ -130,6 +130,7 @@ __docker_run() {
         --init \
         --net=host \
         --ipc=host \
+        --device=/dev/dri \
         -e TZ="$(cat /etc/timezone)" \
         -e DISPLAY="$DISPLAY" \
         -e QT_X11_NO_MITSHM=1 \
