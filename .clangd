@@ -1,0 +1,9 @@
+CompileFlags:
+  Add: [
+    -I../include,
+    -I../../include
+  ]
+Completion:
+  HeaderInsertion: Never
+# Index:
+  # StandardLibrary: true
