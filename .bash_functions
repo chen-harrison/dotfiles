@@ -170,10 +170,12 @@ docker_run_dot() {
         -v "$HOME"/.bashrc:"$DOCKER_HOME"/.bashrc \
         -v "$HOME"/.bash_aliases:"$DOCKER_HOME"/.bash_aliases \
         -v "$HOME"/.bash_functions:"$DOCKER_HOME"/.bash_functions \
+        -v "$HOME"/.bash_history:"$DOCKER_HOME"/.bash_history \
         -v "$HOME"/.gitconfig:"$DOCKER_HOME"/.gitconfig \
         -v "$HOME"/.gitignore_global:"$DOCKER_HOME"/.gitignore_global \
         -v "$HOME"/.clang-format:"$DOCKER_HOME"/.clang-format \
         -v "$HOME"/.gitignore_global:"$DOCKER_HOME"/.clang-tidy \
+        -v "$HOME"/.nanorc:"$DOCKER_HOME"/.nanorc \
         ${args[@]}
 }
 
