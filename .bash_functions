@@ -174,7 +174,8 @@ docker_run_dot() {
         -v "$HOME"/.gitconfig:"$DOCKER_HOME"/.gitconfig \
         -v "$HOME"/.gitignore_global:"$DOCKER_HOME"/.gitignore_global \
         -v "$HOME"/.clang-format:"$DOCKER_HOME"/.clang-format \
-        -v "$HOME"/.gitignore_global:"$DOCKER_HOME"/.clang-tidy \
+        -v "$HOME"/.clang-tidy:"$DOCKER_HOME"/.clang-tidy \
+        -v "$HOME"/.config/clangd/config.yaml:"$DOCKER_HOME"/.config/clangd/config.yaml \
         -v "$HOME"/.nanorc:"$DOCKER_HOME"/.nanorc \
         ${args[@]}
 }
