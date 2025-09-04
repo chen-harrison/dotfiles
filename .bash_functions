@@ -163,7 +163,7 @@ docker_run_dot() {
 
     # Capture the home directory of the default Docker user
     local DOCKER_HOME
-    DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
+    DOCKER_HOME=$(docker run --rm --entrypoint bash "$image" -c "echo \$HOME")
 
     __docker_run "$image" \
         -v "$HOME"/.ssh/known_hosts:"$DOCKER_HOME"/.ssh/known_hosts \
@@ -193,7 +193,7 @@ docker_run_ros() {
 
     # Capture the home directory of the default Docker user
     local DOCKER_HOME
-    DOCKER_HOME=$(docker run --rm "$image" bash -c "echo \$HOME")
+    DOCKER_HOME=$(docker run --rm --entrypoint bash "$image" -c "echo \$HOME")
 
     docker_run_dot "$image" \
         -v "$HOME"/ros2_ws:"$DOCKER_HOME"/ros2_ws
