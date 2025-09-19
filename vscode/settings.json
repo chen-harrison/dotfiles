@@ -25,6 +25,8 @@
     "clangd.path": "/usr/bin/clangd",
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
+    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
     "dev.containers.defaultExtensions": [
         "Gruntfuggly.todo-tree",
         "llvm-vs-code-extensions.vscode-clangd",
@@ -103,5 +105,6 @@
     "todo-tree.tree.flat": true,
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.colorTheme": "Default Dark Modern",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
