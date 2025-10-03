@@ -11,6 +11,9 @@
             "langID": "c++",
             "name": "Doxygen Comment"
         }
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
-    
 ]
