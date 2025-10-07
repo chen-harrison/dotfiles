@@ -15,5 +15,9 @@
     {
         "key": "ctrl+shift+j",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "command": "git-graph.view",
+        "key": "ctrl+k g"
     }
 ]
