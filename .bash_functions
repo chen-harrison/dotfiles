@@ -43,7 +43,7 @@ fzf_file() {
         return
     fi
 
-    fd -tf $1 $2 | fzf
+    fd -tf $1 $2 | fzf --height 80% --tmux 100% --style full --border --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'
 }
 
 fzf_dir() {
@@ -53,7 +53,7 @@ fzf_dir() {
         return
     fi
 
-    fd -td $1 $2 | fzf
+    fd -td $1 $2 | fzf --height 50% --tmux 80% --layout reverse --border
 }
 
 docker_attach() {
