@@ -12,6 +12,7 @@ alias wifi_list='nmcli device wifi list'
 alias lzd='lazydocker'
 alias lzg='lazygit'
 alias sshfs='sshfs -o uid=$(id -u) -o gid=$(id -g)'
+alias storage='df -h .'
 
 # Docker
 alias dima='docker image'
