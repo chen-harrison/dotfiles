@@ -11,6 +11,8 @@
     ps = push
     psf = push --force-with-lease
     pl = pull
+    plo = "!f() { git fetch $(git remote) $1:$1; } ; f"
+    fre = "!f() { git plo $1 && git rebase $1; } ; f"
     s = status
     su = submodule update --init --recursive
     sw = switch
