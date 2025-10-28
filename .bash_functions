@@ -1,6 +1,10 @@
-C_RED="\e[0;31m"
-C_GREEN="\e[0;32m"
-C_RESET="\e[0m"
+echo_green() {
+    echo -e "\e[0;32m$@\e[0m"
+}
+
+echo_red() {
+    echo -e "\e[0;31m$@\e[0m"
+}
 
 check_help() {
     if [[ $# -eq 1 && ($1 == "-h" || $1 == "--help") ]] ; then
@@ -121,7 +125,7 @@ __docker_run() {
     # Give Docker access
     xhost +local:docker &> /dev/null
 
-    echo -e "${C_GREEN}Running $image${C_RESET}"
+    echo_green "Running $image"
 
     # Access to GUI, SSH, GPG; correct time zone
     docker run \
@@ -141,7 +145,7 @@ __docker_run() {
         -e SSH_AUTH_SOCK=/ssh-agent \
         -v "$(gpgconf --list-dirs agent-extra-socket)":/gpg-agent \
         -e GPG_AGENT_INFO=/gpg-agent \
-        ${args[@]} \
+        "${args[@]}" \
         "$image" \
         /bin/bash
 }
@@ -177,7 +181,7 @@ docker_run_dot() {
         -v "$HOME"/.clang-tidy:"$DOCKER_HOME"/.clang-tidy \
         -v "$HOME"/.config:"$DOCKER_HOME"/.config \
         -v "$HOME"/.nanorc:"$DOCKER_HOME"/.nanorc \
-        ${args[@]}
+        "${args[@]}"
 }
 
 docker_run_ros() {
