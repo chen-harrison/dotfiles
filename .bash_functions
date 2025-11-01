@@ -1,16 +1,48 @@
-echo_green() {
-    echo -e "\e[0;32m$@\e[0m"
-}
-
-echo_red() {
-    echo -e "\e[0;31m$@\e[0m"
-}
-
 check_help() {
     if [[ $# -eq 1 && ($1 == "-h" || $1 == "--help") ]] ; then
         return
     fi
     return 1
+}
+
+echo_extra() {
+    if ! [[ $1 =~ -[A-Za-z]+ ]] || check_help "$@" ; then
+        echo "Usage: ${FUNCNAME[0]} FORMATTING STRING"
+        echo "Easily add colors and styling to a terminal print"
+    fi
+    local opts="${1#-}"
+    shift 1
+
+    local style='\e[0'
+    for (( i=0; i<${#opts}; i++ )); do
+        opt="${opts:$i:1}"
+        case "$opt" in
+            r)
+                style+=';31'
+                ;;
+            g)
+                style+=';32'
+                ;;
+            y)
+                style+=';33'
+                ;;
+            b)
+                style+=';34'
+                ;;
+            B)
+                style+=';1'
+                ;;
+            I)
+                style+=';3'
+                ;;
+            U)
+                style+=';4'
+                ;;
+        esac
+    done
+    style+='m'
+
+    echo -e "${style}$*\e[0m"
 }
 
 clang_format_dir() {
@@ -19,7 +51,7 @@ clang_format_dir() {
         echo "Recursively apply clang-format formatting to all C++ files in a target directory."
         return
     elif [[ ! -d $1 ]] ; then
-        echo "ERROR: '$1' not a valid directory" >&2
+        echo_extra -r "ERROR: '$1' not a valid directory" >&2
         return 1
     fi
 
@@ -36,7 +68,7 @@ clang_format_dir() {
         fd -e cpp -e hpp -e h -x "$format_cmd" -i --style=file {}
         cd - > /dev/null
     else
-        echo "ERROR: No clang-format found in $clang_format_dir" >&2
+        echo_extra -r "ERROR: No clang-format found in $clang_format_dir" >&2
     fi
 }
 
@@ -71,9 +103,9 @@ docker_attach() {
     local latest_id
     latest_id=$(docker container ls -lq -f 'status=running')
     if [[ -z $latest_id ]] ; then
-        echo 'No Docker container running!'
+        echo_extra -r 'No Docker container running!'
     elif [[ $# -eq 0 ]] ; then
-        echo "$latest_id"
+        echo_extra -g "$latest_id"
         docker exec -it "$latest_id" /bin/bash
     elif [[ $# -eq 1 ]] ; then
         local idx=$1
@@ -81,7 +113,7 @@ docker_attach() {
         local container_id
         container_id=$(docker container ls -q | sed "$((idx+1))q;d")
         if [[ $container_id ]] ; then
-            echo "$container_id"
+            echo_extra -g "$container_id"
             docker exec -it "$container_id" /bin/bash
         else
             echo "WARNING: container ID not found at index $idx, attaching to latest"
@@ -105,10 +137,10 @@ __match_docker_image() {
         if [[ "${#matches[@]}" -eq 1 ]] ; then
             echo "${matches[0]}"
         elif [[ "${#matches[@]}" -eq 0 ]] ; then
-            echo "No matching Docker image found for '$image_search_str' - aborting" >&2
+            echo_extra -y "No matching Docker image found for '$image_search_str' - aborting" >&2
             return 1
         else
-            echo "Multiple matches found for '$image_search_str' - aborting" >&2
+            echo_extra -y "Multiple matches found for '$image_search_str' - aborting" >&2
             return 1
         fi
     fi
@@ -125,7 +157,7 @@ __docker_run() {
     # Give Docker access
     xhost +local:docker &> /dev/null
 
-    echo_green "Running $image"
+    echo_extra -g "Running $image"
 
     # Access to GUI, SSH, GPG; correct time zone
     docker run \
