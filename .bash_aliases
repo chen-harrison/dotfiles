@@ -12,7 +12,7 @@ alias dcd='docker compose down'
 alias docker_prune='docker container prune -f && docker image prune -f'
 
 # ROS 2
-alias colcon_clean='rm -rf build install log && \
+alias colcon_clean='rm -rf build install log 2> /dev/null || sudo rm -rf build install log ; \
                     AMENT_PREFIX_PATH=$(echo $AMENT_PREFIX_PATH | sed -E "s|$(pwd)[^:]*:||g") && \
                     CMAKE_PREFIX_PATH=$(echo $CMAKE_PREFIX_PATH | sed -E "s|$(pwd)[^:]*:||g")'
 alias si='source install/setup.bash'
