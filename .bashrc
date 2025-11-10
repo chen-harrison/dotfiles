@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=100000
+HISTSIZE=2000
+HISTFILESIZE=200000
 
 # Option 1: commands will be written to history file immediately, so new terminals created
 # after running command will see it in history, even if bash session is not ended
@@ -81,6 +81,7 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u:\w$git_ps\$ '
 fi
 
+# If inside a Docker container, add a whale to the prompt as an indicator
 if [ -e /.dockerenv ]; then
     PS1="🐋 $PS1"
 fi
