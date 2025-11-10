@@ -3,6 +3,7 @@
     name = Harrison Chen
 [alias]
     a = add
+    b = branch
     c = commit
     ca = commit --amend
     can = commit --amend --no-edit
