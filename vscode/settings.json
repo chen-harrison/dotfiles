@@ -92,6 +92,7 @@
         "ms-python.python",
         "oderwat.indent-rainbow"
     ],
+    "search.useGlobalIgnoreFiles": true,
     "telemetry.telemetryLevel": "off",
     "todo-tree.filtering.excludeGlobs": [
         "**/.git/COMMIT_EDITMSG"

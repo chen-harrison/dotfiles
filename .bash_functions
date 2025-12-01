@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 check_help() {
     if [[ $# -eq 1 && ($1 == "-h" || $1 == "--help") ]] ; then
         return
