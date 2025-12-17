@@ -1,9 +1,13 @@
 ---
-Checks: >
+CheckOptions:
+  readability-function-cognitive-complexity.Threshold: 200
+Checks: [
   -*,
   bugprone-*,
   cppcoreguidelines-*,
   misc-*,
   performance-*,
-  readability-*,
+  readability-*
+]
+User: harrison
 ...
