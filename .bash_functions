@@ -214,6 +214,7 @@ docker_run_dot() {
         -v "$HOME"/.clang-format:"$DOCKER_HOME"/.clang-format \
         -v "$HOME"/.clang-tidy:"$DOCKER_HOME"/.clang-tidy \
         -v "$HOME"/.config/clangd/config.yaml:"$DOCKER_HOME"/.config/clangd/config.yaml \
+        -v "$HOME"/.config/Code/User/keybindings.json:"$DOCKER_HOME"/.config/Code/User/keybindings.json \
         -v "$HOME"/.nanorc:"$DOCKER_HOME"/.nanorc \
         "${args[@]}"
 }

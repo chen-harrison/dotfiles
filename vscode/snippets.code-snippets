@@ -17,15 +17,48 @@
 	// }
 
     "Doxygen Comment": {
-        "scope": "c,cpp",
-        "prefix": "doxygen",
         "body": [
             "/**",
-            " * @brief ",
+            " * @brief ${0}",
             " * @param ",
             " * @return ",
             " */"
         ],
-        "description": "Doxygen comment template"
+        "description": "Doxygen comment template",
+        "prefix": "DOXYGEN",
+        "scope": "c,cpp"
+    },
+    // ROS 2
+    "ROS 2 Log Debug": {
+        "body": [
+            "RCLCPP_DEBUG_STREAM(get_logger(), ${0:stream});"
+        ],
+        "description": "ROS 2 log debug",
+        "prefix": "RCLCPP_DEBUG_STREAM",
+        "scope": "c,cpp"
+    },
+    "ROS 2 Log ERROR": {
+        "body": [
+            "RCLCPP_ERROR_STREAM(get_logger(), ${0:stream});"
+        ],
+        "description": "ROS 2 log error",
+        "prefix": "RCLCPP_ERROR_STREAM",
+        "scope": "c,cpp"
+    },
+    "ROS 2 Log Info": {
+        "body": [
+            "RCLCPP_INFO_STREAM(get_logger(), ${0:stream});"
+        ],
+        "description": "ROS 2 log info",
+        "prefix": "RCLCPP_INFO_STREAM",
+        "scope": "c,cpp"
+    },
+    "ROS 2 Log Warn": {
+        "body": [
+            "RCLCPP_WARN_STREAM(get_logger(), ${0:stream});"
+        ],
+        "description": "ROS 2 log warning",
+        "prefix": "RCLCPP_WARN_STREAM",
+        "scope": "c,cpp"
     }
 }
