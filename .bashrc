@@ -155,7 +155,7 @@ fi
     source ~/.fzf.bash
 
 # thefuck
-command -v thefuck &> /dev/null && eval $(thefuck --alias)
+command -v thefuck &> /dev/null && eval "$(thefuck --alias)"
 
 # nnn
 command -v nnn &> /dev/null && \
