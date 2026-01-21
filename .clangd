@@ -5,5 +5,12 @@ CompileFlags:
   ]
 Completion:
   HeaderInsertion: Never
-# Index:
-  # StandardLibrary: true
+Index:
+  StandardLibrary: true
+InlayHints:
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+  BlockEnd: true
+Hover:
+  ShowAKA: false
