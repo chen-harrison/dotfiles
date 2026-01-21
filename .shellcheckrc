@@ -1,0 +1,7 @@
+# Allow for external files to be sourced
+external-sources=true
+
+# Disable certain checks
+disable=SC1090
+disable=SC1091
+disable=SC2164
