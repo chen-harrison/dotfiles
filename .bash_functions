@@ -23,21 +23,27 @@ echo_extra() {
                 style+=';31'
                 ;;
             g)
+                # Green
                 style+=';32'
                 ;;
             y)
+                # Yellow
                 style+=';33'
                 ;;
             b)
+                # Blue
                 style+=';34'
                 ;;
             B)
+                # Bold
                 style+=';1'
                 ;;
             I)
+                # Italic
                 style+=';3'
                 ;;
             U)
+                # Underline
                 style+=';4'
                 ;;
         esac
@@ -214,7 +220,6 @@ docker_run_dot() {
         -v "$HOME"/.clang-format:"$DOCKER_HOME"/.clang-format \
         -v "$HOME"/.clang-tidy:"$DOCKER_HOME"/.clang-tidy \
         -v "$HOME"/.clangd:"$DOCKER_HOME"/.clangd \
-        -v "$HOME"/.config/Code/User/keybindings.json:"$DOCKER_HOME"/.config/Code/User/keybindings.json \
         -v "$HOME"/.nanorc:"$DOCKER_HOME"/.nanorc \
         "${args[@]}"
 }
