@@ -1,3 +1,6 @@
+# Set shell to bash
+shell=bash
+
 # Allow for external files to be sourced
 external-sources=true
 

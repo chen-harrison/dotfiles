@@ -1,5 +1,3 @@
-# shellcheck shell=bash
-
 # Commonly used
 alias brc='. ~/.bashrc'
 alias cl='clear'

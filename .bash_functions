@@ -1,5 +1,3 @@
-# shellcheck shell=bash
-
 check_help() {
     if [[ $# -eq 1 && ($1 == "-h" || $1 == "--help") ]] ; then
         return
@@ -20,6 +18,7 @@ echo_extra() {
         opt="${opts:$i:1}"
         case "$opt" in
             r)
+                # Red
                 style+=';31'
                 ;;
             g)
