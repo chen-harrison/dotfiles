@@ -30,6 +30,8 @@
 [core]
     editor = code --wait
     excludesFile = ~/.gitignore_global
+[credential]
+    helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 [fetch]
     prune = true
 [help]
