@@ -1,0 +1,32 @@
+# Serves as the .pre-commit-config.yaml of the repo, as well as a baseline template for reuse
+
+repos:
+
+  ### Secrets Protection
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+
+  ### General-purpose Formatting
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  ### Shell Scripting
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.11.0
+    hooks:
+      - id: shellcheck
+        # Matches options in .shellcheckrc
+        args: ["--shell=bash", "-x", "--exclude=SC1090,SC1091,SC2164"]
+
+  ### LaTeX Formatting
+  # - repo: https://github.com/cmhughes/latexindent.pl.git
+  #   rev: V3.24.7
+  #   hooks:
+  #     - id: latexindent
+  #       # Matches args for latexindent in VS Code settings
+  #       args: ["-wd", "-s", "-m", "-y=defaultIndent:'  ',modifyLineBreaks:textWrapOptions:columns:100"]

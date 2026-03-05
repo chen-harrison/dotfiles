@@ -105,7 +105,7 @@ docker_attach() {
         echo "Attach to the latest running container, or to the container at a specified index."
         return
     fi
-    
+
     # Grab the ID of most recent running container
     local latest_id
     latest_id=$(docker container ls -lq -f 'status=running')

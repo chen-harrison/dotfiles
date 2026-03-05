@@ -20,7 +20,7 @@ set tabsize 4
 set tabstospaces
 
 # Change key bindings
-bind ^C copy main    
-bind ^V paste all    
-bind ^F whereis all  
+bind ^C copy main
+bind ^V paste all
+bind ^F whereis all
 bind ^S savefile main

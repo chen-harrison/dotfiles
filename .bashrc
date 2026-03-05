@@ -99,7 +99,11 @@ esac
 
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    if [ -r ~/.dircolors ]; then
+        eval "$(dircolors -b ~/.dircolors)"
+    else
+        eval "$(dircolors -b)"
+    fi
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
@@ -171,7 +175,7 @@ command -v fasd &> /dev/null && eval "$(fasd --init auto)"
 command -v clangd &> /dev/null && export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
 # ROS 2 + colcon
-[ -f /opt/ros/$ROS_DISTRO/setup.bash ] && source /opt/ros/$ROS_DISTRO/setup.bash
+[ -f "/opt/ros/$ROS_DISTRO/setup.bash" ] && source "/opt/ros/$ROS_DISTRO/setup.bash"
 [ -d /usr/share/colcon_cd ] && \
     source /usr/share/colcon_cd/function/colcon_cd.sh && \
     export _colcon_cd_root=/opt/ros/$ROS_DISTRO/
