@@ -5,6 +5,7 @@
     a = add
     b = branch
     c = commit
+    cn = commit --no-verify
     ca = commit --amend
     can = commit --amend --no-edit
     co = checkout
@@ -30,14 +31,23 @@
 [core]
     editor = code --wait
     excludesFile = ~/.gitignore_global
+    pager = delta
 [credential]
     helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+[delta]
+    navigate = true
+    side-by-side = false
+    line-numbers = true
 [fetch]
     prune = true
 [help]
     autoCorrect = immediate
 [init]
     defaultBranch = main
+[interactive]
+    diffFilter = delta --color-only
+[merge]
+    conflictStyle = diff3
 [pull]
     ff = only
 [push]
