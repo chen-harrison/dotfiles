@@ -2,26 +2,43 @@
 
 repos:
 
-  ### Secrets Protection
+  ### Secrets protection
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.0
     hooks:
       - id: gitleaks
 
-  ### General-purpose Formatting
+  ### General
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
+      # File formatting
       - id: end-of-file-fixer
       - id: trailing-whitespace
+      # Large files (set file size)
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]
+      # Executables:
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      # JSON files:
+      - id: check-json
+      # - id: pretty-format-json
+      #   args: ["--autofix", "--indent=4", "--top-keys='key,command'"]
 
-  ### Shell Scripting
+  ### Shell scripting
   - repo: https://github.com/koalaman/shellcheck-precommit
     rev: v0.11.0
     hooks:
       - id: shellcheck
         # Matches options in .shellcheckrc
         args: ["--shell=bash", "-x", "--exclude=SC1090,SC1091,SC2164"]
+
+  ### C++
+  # - repo: https://github.com/pre-commit/mirrors-clang-format
+  #   rev: v20.1.8
+  #   hooks:
+  #   - id: clang-format
 
   ### LaTeX Formatting
   # - repo: https://github.com/cmhughes/latexindent.pl.git
