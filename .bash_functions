@@ -174,7 +174,7 @@ __docker_run() {
 
     echo_extra -g "Running $image"
 
-    # Access to GUI, SSH, GPG; correct time zone
+    # Access to GUI, SSH; correct time zone
     docker run \
         --rm \
         -it \
@@ -190,8 +190,6 @@ __docker_run() {
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
         -v "$SSH_AUTH_SOCK":/ssh-agent \
         -e SSH_AUTH_SOCK=/ssh-agent \
-        -v "$(gpgconf --list-dirs agent-extra-socket)":/gpg-agent \
-        -e GPG_AGENT_INFO=/gpg-agent \
         "${args[@]}" \
         "$image" \
         /bin/bash
