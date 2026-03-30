@@ -103,7 +103,7 @@
     "todo-tree.tree.expanded": true,
     "todo-tree.tree.flat": true,
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.colorTheme": "Default Dark Modern",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.secondarySideBar.defaultVisibility": "hidden"
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.startupEditor": "none"
 }
