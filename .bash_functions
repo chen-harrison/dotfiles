@@ -53,11 +53,16 @@ echo_extra() {
 }
 
 update() {
-    sudo apt update -q && apt list --upgradable
-    read -rp $'\n\e[0;34mUpgrade packages [y/N]? \e[0m'
-    if [[ "$REPLY" =~ ^[yY]$ ]] ; then
-        sudo apt upgrade && sudo apt autoremove
-    fi
+    sudo apt update -q && \
+    apt list --upgradable && \
+    {
+        read -rp $'\n\e[0;34mUpgrade packages? [y/N] \e[0m'
+        if [[ "$REPLY" =~ ^[yY]$ ]] ; then
+            sudo apt upgrade -y && sudo apt autoremove
+        else
+            return 1
+        fi
+    }
 }
 
 clang_format_dir() {
