@@ -27,6 +27,7 @@
     "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
     "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
     "dev.containers.defaultExtensions": [
+        "anthropic.claude-code",
         "Gruntfuggly.todo-tree",
         "llvm-vs-code-extensions.vscode-clangd",
         "mhutchie.git-graph",
@@ -107,5 +108,6 @@
     "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "vscode-icons",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "claudeCode.preferredLocation": "sidebar"
 }

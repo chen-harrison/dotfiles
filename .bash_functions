@@ -58,7 +58,7 @@ update() {
     {
         read -rp $'\n\e[0;34mUpgrade packages? [y/N] \e[0m'
         if [[ "$REPLY" =~ ^[yY]$ ]] ; then
-            sudo apt upgrade -y && sudo apt autoremove
+            sudo apt upgrade -y && sudo apt autoremove -y
         else
             return 1
         fi
@@ -234,6 +234,54 @@ docker_run_dot() {
         "${args[@]}"
 }
 
+docker_run_dev() {
+    if [[ $# -eq 0 ]] || check_help "$@" ; then
+        echo "Usage: ${FUNCNAME[0]} DOCKER_IMAGE"
+        echo "Run Docker image with dev tools"
+        return
+    fi
+
+    # Get the Docker image name
+    local image
+    image=$(__match_docker_image $1) || return 1
+    shift
+
+    # Store the remaining args in an array
+    local args=( "$@" )
+
+    # Capture the home directory of the default Docker user
+    local DOCKER_HOME
+    DOCKER_HOME=$(docker run --rm --entrypoint bash "$image" -c "echo \$HOME")
+
+    # Create mounts for tool binaries
+    local tool_binaries=(
+        delta
+        fasd
+        fd
+        lazygit
+        nnn
+    )
+    local binary_mounts=()
+    for bin in "${tool_binaries[@]}"; do
+        local bin_path
+        bin_path=$(which "$bin" 2>/dev/null) || continue
+        bin_path=$(realpath "$bin_path")
+        binary_mounts+=(-v "$bin_path":/usr/local/bin/"$bin")
+    done
+
+    docker_run_dot "$image" \
+        -e SHELL=/bin/bash \
+        -e TERM=xterm-256color \
+        -e LANG="${LANG:-C.UTF-8}" \
+        -v "$HOME"/.fzf:"$DOCKER_HOME"/.fzf \
+        -v "$HOME"/.fzf.bash:"$DOCKER_HOME"/.fzf.bash \
+        -v "$HOME"/.claude:"$DOCKER_HOME"/.claude \
+        -v /usr/local/lib/clang:/usr/local/lib/clang \
+        -v /usr/local/bin/clangd:/usr/bin/clangd \
+        "${binary_mounts[@]}" \
+        "${args[@]}"
+}
+
 docker_run_ros() {
     if [[ $# -ne 1 ]] || check_help "$@" ; then
         echo "Usage: ${FUNCNAME[0]} DOCKER_IMAGE"
@@ -249,7 +297,7 @@ docker_run_ros() {
     local DOCKER_HOME
     DOCKER_HOME=$(docker run --rm --entrypoint bash "$image" -c "echo \$HOME")
 
-    docker_run_dot "$image" \
+    docker_run_dev "$image" \
         -v "$HOME"/ros2_ws:"$DOCKER_HOME"/ros2_ws
 }
 
