@@ -82,11 +82,7 @@ clang_format_dir() {
     format_cmd=$(fd -tf clang-format "$clang_format_dir" | sort | tail -1)
 
     if [[ -f $format_cmd ]] ; then
-        # Enter into the target directory, filter for C++ files, then execute
-        # clang-format on them, and return to previous dir
-        cd "$target_dir"
-        fd -e cpp -e hpp -e h -x "$format_cmd" -i --style=file {}
-        cd - > /dev/null
+        (cd "$target_dir" && fd -e cpp -e hpp -e h -x "$format_cmd" -i --style=file {})
     else
         echo_extra -r "ERROR: No clang-format found in $clang_format_dir" >&2
     fi
@@ -99,7 +95,7 @@ fzf_file() {
         return
     fi
 
-    fd -tf $1 $2 | fzf --height 80% --tmux 100% --style full --border --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'
+    fd -tf "$1" "$2" | fzf --height 80% --tmux 100% --style full --border --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'
 }
 
 fzf_dir() {
@@ -109,7 +105,7 @@ fzf_dir() {
         return
     fi
 
-    fd -td $1 $2 | fzf --height 50% --tmux 80% --layout reverse --border
+    fd -td "$1" "$2" | fzf --height 50% --tmux 80% --layout reverse --border
 }
 
 docker_attach() {
@@ -153,7 +149,7 @@ __match_docker_image() {
     if echo "$image_list" | grep -Fxq "$image_search_str" ; then
         echo "$image_search_str"
     else
-        matches=($(echo "$image_list" | grep -i "$image_search_str"))
+        mapfile -t matches < <(echo "$image_list" | grep -i "$image_search_str")
         if [[ "${#matches[@]}" -eq 1 ]] ; then
             echo "${matches[0]}"
         elif [[ "${#matches[@]}" -eq 0 ]] ; then
@@ -209,7 +205,7 @@ docker_run_dot() {
 
     # Get the Docker image name
     local image
-    image=$(__match_docker_image $1) || return 1
+    image=$(__match_docker_image "$1") || return 1
     shift
 
     # Store the remaining args in an array
@@ -243,7 +239,7 @@ docker_run_dev() {
 
     # Get the Docker image name
     local image
-    image=$(__match_docker_image $1) || return 1
+    image=$(__match_docker_image "$1") || return 1
     shift
 
     # Store the remaining args in an array
@@ -272,7 +268,7 @@ docker_run_dev() {
     docker_run_dot "$image" \
         -e SHELL=/bin/bash \
         -e TERM=xterm-256color \
-        -e LANG="${LANG:-C.UTF-8}" \
+        -e LANG=C.UTF-8 \
         -v "$HOME"/.fzf:"$DOCKER_HOME"/.fzf \
         -v "$HOME"/.fzf.bash:"$DOCKER_HOME"/.fzf.bash \
         -v "$HOME"/.claude:"$DOCKER_HOME"/.claude \
@@ -291,7 +287,7 @@ docker_run_ros() {
 
     # Get the Docker image name
     local image
-    image=$(__match_docker_image $1) || return 1
+    image=$(__match_docker_image "$1") || return 1
 
     # Capture the home directory of the default Docker user
     local DOCKER_HOME
