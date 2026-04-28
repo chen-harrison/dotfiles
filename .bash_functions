@@ -251,6 +251,7 @@ docker_run_dev() {
 
     # Create mounts for tool binaries
     local tool_binaries=(
+        bat
         delta
         fasd
         fd
@@ -272,6 +273,7 @@ docker_run_dev() {
         -v "$HOME"/.fzf:"$DOCKER_HOME"/.fzf \
         -v "$HOME"/.fzf.bash:"$DOCKER_HOME"/.fzf.bash \
         -v "$HOME"/.claude:"$DOCKER_HOME"/.claude \
+        -v "$(realpath "$HOME"/.claude/settings.json)":"$DOCKER_HOME"/.claude/settings.json \
         -v /usr/local/lib/clang:/usr/local/lib/clang \
         -v /usr/local/bin/clangd:/usr/bin/clangd \
         "${binary_mounts[@]}" \

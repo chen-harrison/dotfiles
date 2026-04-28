@@ -58,6 +58,7 @@ add_dotfile "$dotfiles_dir"/.gitmessage.txt ~/.gitmessage.txt
 add_dotfile "$dotfiles_dir"/.nanorc ~/.nanorc
 add_dotfile "$dotfiles_dir"/.shellcheckrc ~/.shellcheckrc
 add_dotfile "$dotfiles_dir"/.tmux.conf ~/.tmux.conf
+add_dotfile "$dotfiles_dir"/claude/settings.json ~/.claude/settings.json
 add_dotfile "$dotfiles_dir"/vscode/settings.json ~/.config/Code/User/settings.json
 add_dotfile "$dotfiles_dir"/vscode/tasks.json ~/.config/Code/User/tasks.json
 add_dotfile "$dotfiles_dir"/vscode/keybindings.json ~/.config/Code/User/keybindings.json
