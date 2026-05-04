@@ -149,6 +149,9 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# Add ~/.local/bin to PATH if needed
+[ -d "$HOME/.local/bin" ] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$HOME/.local/bin:$PATH"
+
 # fzf
 [ -d ~/.fzf ] && \
     export FZF_DEFAULT_COMMAND='fd' && \
