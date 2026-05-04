@@ -1,18 +1,33 @@
 [
     {
-        "key": "ctrl+shift+/",
-        "command": "editor.action.insertSnippet",
         "args": {
             "langID": "c++",
             "name": "Doxygen Comment"
-        }
+        },
+        "command": "editor.action.insertSnippet",
+        "key": "ctrl+shift+/"
     },
     {
-        "key": "ctrl+shift+j",
-        "command": "workbench.action.toggleMaximizedPanel"
+        "command": "workbench.action.toggleMaximizedPanel",
+        "key": "ctrl+shift+j"
     },
     {
         "command": "git-graph.view",
         "key": "ctrl+k g"
+    },
+    {
+        "command": "workbench.action.maximizeAuxiliaryBar",
+        "key": "ctrl+shift+alt+b",
+        "when": "!auxiliaryBarMaximized"
+    },
+    {
+        "command": "workbench.action.restoreAuxiliaryBar",
+        "key": "ctrl+shift+alt+b",
+        "when": "auxiliaryBarMaximized"
+    },
+    {
+        "command": "-workbench.action.restoreAuxiliaryBar",
+        "key": "ctrl+w",
+        "when": "auxiliaryBarMaximized"
     }
 ]
