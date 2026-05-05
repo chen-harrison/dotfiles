@@ -2,7 +2,7 @@
     email = hchen.robotics@gmail.com
     name = Harrison Chen
 [alias]
-    a = add
+    a = add -u
     b = branch
     c = commit
     cn = commit --no-verify
