@@ -45,8 +45,12 @@
     ],
     "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        ".bash_functions": "shellscript"
+    },
     "files.insertFinalNewline": true,
     "git.autorefresh": true,
+    "git.blame.editorDecoration.enabled": true,
     "git.confirmSync": false,
     "github.copilot.enable": {
         "*": false

@@ -29,7 +29,7 @@ add_dotfile () {
             echo "Saving $file_path to prev_dotfiles"
             cp "$file_path" "${PWD}/prev_dotfiles/$(basename "$dotfile_path")"
         else
-            echo -e "\e[0;33mSymlink to $dotfile_path already exists - skipping\e[0m"
+            echo "Symlink to $dotfile_path already exists - skipping"
             return
         fi
     fi
@@ -38,28 +38,24 @@ add_dotfile () {
     ln -sf "$dotfile_path" "$symlink_path"
 }
 
-script_dir=$(dirname "$0")
-cd "$script_dir"
-mkdir -p "${PWD}/prev_dotfiles"
+cd "$(dirname "$0")"
+mkdir -p "prev_dotfiles"
 
-# Find path to dotfiles directory, and grab files from there
-dotfiles_dir=$(find ~ -type d -name "dotfiles" 2> /dev/null | head -n 1)
-
-add_dotfile "$dotfiles_dir"/.bash_aliases ~/.bash_aliases
-add_dotfile "$dotfiles_dir"/.bash_functions ~/.bash_functions
-add_dotfile "$dotfiles_dir"/.bashrc ~/.bashrc
-add_dotfile "$dotfiles_dir"/.clangd ~/.clangd
-add_dotfile "$dotfiles_dir"/.clang-format ~/.clang-format
-add_dotfile "$dotfiles_dir"/.clang-tidy ~/.clang-tidy
-add_dotfile "$dotfiles_dir"/.fzf.bash ~/.fzf.bash
-add_dotfile "$dotfiles_dir"/.gitconfig ~/.gitconfig
-add_dotfile "$dotfiles_dir"/.gitignore_global ~/.gitignore_global
-add_dotfile "$dotfiles_dir"/.gitmessage.txt ~/.gitmessage.txt
-add_dotfile "$dotfiles_dir"/.nanorc ~/.nanorc
-add_dotfile "$dotfiles_dir"/.shellcheckrc ~/.shellcheckrc
-add_dotfile "$dotfiles_dir"/.tmux.conf ~/.tmux.conf
-add_dotfile "$dotfiles_dir"/claude/settings.json ~/.claude/settings.json
-add_dotfile "$dotfiles_dir"/vscode/settings.json ~/.config/Code/User/settings.json
-add_dotfile "$dotfiles_dir"/vscode/tasks.json ~/.config/Code/User/tasks.json
-add_dotfile "$dotfiles_dir"/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-add_dotfile "$dotfiles_dir"/vscode/snippets.code-snippets ~/.config/Code/User/snippets/snippets.code-snippets
+add_dotfile "$PWD"/.bash_aliases ~/.bash_aliases
+add_dotfile "$PWD"/.bash_functions ~/.bash_functions
+add_dotfile "$PWD"/.bashrc ~/.bashrc
+add_dotfile "$PWD"/.clangd ~/.clangd
+add_dotfile "$PWD"/.clang-format ~/.clang-format
+add_dotfile "$PWD"/.clang-tidy ~/.clang-tidy
+add_dotfile "$PWD"/.fzf.bash ~/.fzf.bash
+add_dotfile "$PWD"/.gitconfig ~/.gitconfig
+add_dotfile "$PWD"/.gitignore_global ~/.gitignore_global
+add_dotfile "$PWD"/.gitmessage.txt ~/.gitmessage.txt
+add_dotfile "$PWD"/.nanorc ~/.nanorc
+add_dotfile "$PWD"/.shellcheckrc ~/.shellcheckrc
+add_dotfile "$PWD"/.tmux.conf ~/.tmux.conf
+add_dotfile "$PWD"/claude/settings.json ~/.claude/settings.json
+add_dotfile "$PWD"/vscode/settings.json ~/.config/Code/User/settings.json
+add_dotfile "$PWD"/vscode/tasks.json ~/.config/Code/User/tasks.json
+add_dotfile "$PWD"/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+add_dotfile "$PWD"/vscode/snippets.code-snippets ~/.config/Code/User/snippets/snippets.code-snippets
