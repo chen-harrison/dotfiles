@@ -21,6 +21,7 @@
     ],
     "C_Cpp.doxygen.generatedStyle": "/**",
     "C_Cpp.intelliSenseEngine": "disabled",
+    "chat.viewSessions.enabled": false,
     "clangd.path": "/usr/bin/clangd",
     "claudeCode.preferredLocation": "sidebar",
     "cmake.configureOnOpen": false,
@@ -46,7 +47,8 @@
     "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-        ".bash_functions": "shellscript"
+        ".bash_functions": "shellscript",
+        ".clangd": "yaml"
     },
     "files.insertFinalNewline": true,
     "git.autorefresh": true,

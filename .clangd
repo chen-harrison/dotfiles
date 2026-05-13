@@ -11,6 +11,6 @@ InlayHints:
   Enabled: true
   ParameterNames: true
   DeducedTypes: true
-  BlockEnd: true
+  BlockEnd: false
 Hover:
   ShowAKA: false
