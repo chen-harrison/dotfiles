@@ -53,6 +53,7 @@
     "files.insertFinalNewline": true,
     "git.autorefresh": true,
     "git.blame.editorDecoration.enabled": true,
+    "git.blame.ignoreWhitespace": true,
     "git.confirmSync": false,
     "github.copilot.enable": {
         "*": false
