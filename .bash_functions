@@ -54,8 +54,13 @@ echo_extra() {
 
 update() {
     sudo apt update -q && \
-    apt list --upgradable && \
     {
+        local upgradable
+        upgradable=$(apt list --upgradable 2>/dev/null)
+        if [[ $(echo "$upgradable" | grep -c '/') -eq 0 ]] ; then
+            return 0
+        fi
+        apt list --upgradable
         read -rp $'\n\e[0;34mUpgrade packages? [y/N] \e[0m'
         if [[ "$REPLY" =~ ^[yY]$ ]] ; then
             sudo apt upgrade -y && sudo apt autoremove -y
