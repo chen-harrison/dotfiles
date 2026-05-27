@@ -279,6 +279,7 @@ docker_run_dev() {
         -v "$HOME"/.fzf.bash:"$DOCKER_HOME"/.fzf.bash \
         -v "$HOME"/.claude:"$DOCKER_HOME"/.claude \
         -v "$(realpath "$HOME"/.claude/settings.json)":"$DOCKER_HOME"/.claude/settings.json \
+        -v "$(realpath "$HOME"/.claude/CLAUDE.md)":"$DOCKER_HOME"/.claude/CLAUDE.md \
         -v /usr/local/lib/clang:/usr/local/lib/clang \
         -v /usr/local/bin/clangd:/usr/bin/clangd \
         "${binary_mounts[@]}" \

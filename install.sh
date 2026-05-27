@@ -55,6 +55,7 @@ add_dotfile "$PWD"/.nanorc ~/.nanorc
 add_dotfile "$PWD"/.shellcheckrc ~/.shellcheckrc
 add_dotfile "$PWD"/.tmux.conf ~/.tmux.conf
 add_dotfile "$PWD"/claude/settings.json ~/.claude/settings.json
+add_dotfile "$PWD"/claude/CLAUDE.md ~/.claude/CLAUDE.md
 add_dotfile "$PWD"/vscode/settings.json ~/.config/Code/User/settings.json
 add_dotfile "$PWD"/vscode/tasks.json ~/.config/Code/User/tasks.json
 add_dotfile "$PWD"/vscode/keybindings.json ~/.config/Code/User/keybindings.json
