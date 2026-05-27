@@ -1,16 +1,17 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(ls:*)",
-      "Bash(find:*)",
-      "Bash(grep:*)"
-    ],
-    "ask": [
-      "Bash(rm:*)"
-    ]
-  },
-  "enabledPlugins": {
-    "clangd-lsp@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true
-  }
+    "enabledPlugins": {
+        "clangd-lsp@claude-plugins-official": true,
+        "code-simplifier@claude-plugins-official": true
+    },
+    "permissions": {
+        "allow": [
+            "Bash(ls:*)",
+            "Bash(find:*)",
+            "Bash(grep:*)"
+        ],
+        "ask": [
+            "Bash(rm:*)"
+        ]
+    },
+    "theme": "auto"
 }
