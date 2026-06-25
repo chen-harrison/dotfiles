@@ -261,7 +261,9 @@ docker_run_dev() {
         fasd
         fd
         lazygit
+        less
         nnn
+        prek
     )
     local binary_mounts=()
     for bin in "${tool_binaries[@]}"; do

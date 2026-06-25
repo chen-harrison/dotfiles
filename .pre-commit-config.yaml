@@ -4,7 +4,7 @@ repos:
 
   ### Secrets protection
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.30.0
+    rev: v8.30.1
     hooks:
       - id: gitleaks
 
@@ -36,13 +36,13 @@ repos:
 
   ### C++
   # - repo: https://github.com/pre-commit/mirrors-clang-format
-  #   rev: v20.1.8
+  #   rev: v22.1.5
   #   hooks:
   #   - id: clang-format
 
   ### LaTeX Formatting
   # - repo: https://github.com/cmhughes/latexindent.pl.git
-  #   rev: V3.24.7
+  #   rev: V4.0.2
   #   hooks:
   #     - id: latexindent
   #       # Matches args for latexindent in VS Code settings
