@@ -27,7 +27,10 @@ add_dotfile () {
         # If the file is different from the source dotfile, copy it into prev_dotfiles
         if ! cmp -s "$dotfile_path" "$file_path" ; then
             echo "Saving $file_path to prev_dotfiles"
-            cp "$file_path" "${PWD}/prev_dotfiles/$(basename "$dotfile_path")"
+            local rel_path=${symlink_path#"$HOME"/}
+            local prev_dotfile_path="${PWD}/prev_dotfiles/$rel_path"
+            mkdir -p "$(dirname "$prev_dotfile_path")"
+            cp "$file_path" "$prev_dotfile_path"
         else
             echo "Symlink to $dotfile_path already exists - skipping"
             return
