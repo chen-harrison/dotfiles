@@ -155,10 +155,12 @@ fi
 # fzf
 [ -d ~/.fzf ] && \
     export FZF_DEFAULT_COMMAND='fd' && \
+    export FZF_CTRL_T_COMMAND='fd' && \
+    export FZF_ALT_C_COMMAND="fd -td" && \
     export FZF_DEFAULT_OPTS='--height 50% --layout reverse --border' && \
-    export FZF_CTRL_R_OPTS='--height 50% --tmux 80% --layout reverse --border' && \
+    export FZF_CTRL_R_OPTS='--height 50% --popup 80% --layout reverse --border' && \
     export FZF_ALT_C_OPTS=$FZF_CTRL_R_OPTS && \
-    export FZF_CTRL_T_OPTS='--height 80% --tmux 100% --style full --border --preview "fzf-preview.sh {}" --bind "focus:transform-header:file --brief {}"' && \
+    export FZF_CTRL_T_OPTS='--height 80% --popup 100% --style full --border --preview "fzf-preview.sh {}" --bind "focus:transform-header:file --brief {}"' && \
     source ~/.fzf.bash
 
 # thefuck

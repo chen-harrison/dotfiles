@@ -112,6 +112,7 @@
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS):",
     "todo-tree.tree.expanded": true,
     "todo-tree.tree.flat": true,
+    "update.mode": "manual",
     "vsicons.dontShowNewVersionMessage": true,
     "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "vscode-icons",
