@@ -21,6 +21,8 @@
     ],
     "C_Cpp.doxygen.generatedStyle": "/**",
     "C_Cpp.intelliSenseEngine": "disabled",
+    "chat.titleBar.openInAgentsWindow.enabled": false,
+    "chat.titleBar.signIn.enabled": false,
     "chat.viewSessions.enabled": false,
     "clangd.path": "/usr/bin/clangd",
     "claudeCode.preferredLocation": "sidebar",
@@ -110,11 +112,15 @@
         "type": "text"
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS):",
+    "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
     "todo-tree.tree.expanded": true,
     "todo-tree.tree.flat": true,
     "update.mode": "manual",
     "vsicons.dontShowNewVersionMessage": true,
     "window.autoDetectColorScheme": true,
+    "workbench.editorAssociations": {
+        "*.md": "vscode.markdown.editor"
+    },
     "workbench.iconTheme": "vscode-icons",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "workbench.startupEditor": "none"

@@ -6,4 +6,4 @@
 
 # Code Style
 
-- When drawing divider lines or borders in code comments or string literals, only use keyboard-accessible characters (`=`, `-`, `_`, `+`, `|`, `#`).
+- In code, comments, and string literals, use only keyboard-accessible characters (e.g. `=`, `-`, `_`, `+`, `|`, `#` for dividers and borders). The exception is file tree diagrams, which may use box-drawing characters (`├`, `└`, `│`, `─`).

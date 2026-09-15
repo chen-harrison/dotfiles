@@ -1,8 +1,4 @@
 {
-    "enabledPlugins": {
-        "clangd-lsp@claude-plugins-official": true,
-        "code-simplifier@claude-plugins-official": true
-    },
     "permissions": {
         "allow": [
             "Bash(ls:*)",
@@ -12,6 +8,10 @@
         "ask": [
             "Bash(rm:*)"
         ]
+    },
+    "enabledPlugins": {
+        "clangd-lsp@claude-plugins-official": true,
+        "code-simplifier@claude-plugins-official": true
     },
     "theme": "auto"
 }
