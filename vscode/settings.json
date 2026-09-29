@@ -25,6 +25,7 @@
     "chat.titleBar.signIn.enabled": false,
     "chat.viewSessions.enabled": false,
     "clangd.path": "/usr/bin/clangd",
+    "claudeCode.hideOnboarding": true,
     "claudeCode.preferredLocation": "sidebar",
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
