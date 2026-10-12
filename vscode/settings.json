@@ -12,6 +12,11 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2
     },
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
     "C_Cpp.codeAnalysis.clangTidy.enabled": false,
     "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "C_Cpp.default.cppStandard": "c++17",
@@ -48,6 +53,7 @@
         120
     ],
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
     "files.associations": {
         ".bash_functions": "shellscript",
@@ -77,6 +83,9 @@
         "-y=defaultIndent:'  ',modifyLineBreaks:textWrapOptions:columns:100",
         "%TMPFILE%"
     ],
+    "notebook.codeActionsOnSave": {
+        "notebook.source.organizeImports": "explicit"
+    },
     "peacock.favoriteColors": [
         {
             "name": "Red",

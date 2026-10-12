@@ -7,3 +7,4 @@
 # Code Style
 
 - In code, comments, and string literals, use only keyboard-accessible characters (e.g. `=`, `-`, `_`, `+`, `|`, `#` for dividers and borders). The exception is file tree diagrams, which may use box-drawing characters (`├`, `└`, `│`, `─`).
+- Short trailing comments are fine, but if one would push the line past the formatter's line length, put it on its own line directly above the code instead.
