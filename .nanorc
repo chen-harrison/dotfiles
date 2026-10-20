@@ -13,10 +13,8 @@ set indicator
 # Automatically indent
 set autoindent
 
-# Tab size to 4 (default to 8)
+# Tab size to 4 + use spaces
 set tabsize 4
-
-# Convert tabs to spaces
 set tabstospaces
 
 # Change key bindings

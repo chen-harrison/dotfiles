@@ -12,6 +12,10 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2
     },
+    "[markdown]": {
+        "editor.rulers": [],
+        "editor.wordWrap": "on"
+    },
     "[python]": {
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
@@ -31,7 +35,6 @@
     "chat.viewSessions.enabled": false,
     "clangd.path": "/usr/bin/clangd",
     "claudeCode.hideOnboarding": true,
-    "claudeCode.preferredLocation": "sidebar",
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
     "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
@@ -49,8 +52,7 @@
     "editor.detectIndentation": false,
     "editor.fontFamily": "'DroidSansM Nerd Font Mono', 'monospace', monospace",
     "editor.rulers": [
-        80,
-        120
+        100
     ],
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -112,6 +114,7 @@
         "ms-python.python",
         "oderwat.indent-rainbow"
     ],
+    "ruff.lineLength": 100,
     "search.useGlobalIgnoreFiles": true,
     "telemetry.telemetryLevel": "off",
     "todo-tree.filtering.excludeGlobs": [
