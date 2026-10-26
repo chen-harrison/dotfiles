@@ -9,6 +9,7 @@
       "Bash(rm:*)"
     ]
   },
+  "model": "opus",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
