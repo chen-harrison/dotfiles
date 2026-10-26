@@ -1,0 +1,5 @@
+! YouTube comments
+youtube.com##ytd-comments#comments
+
+! Reddit r/nba comments
+reddit.com##:matches-path(/r/nba/comments/) shreddit-comment-tree
